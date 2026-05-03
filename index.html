@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Link Hub</title>
+  <link href="https://fonts.google.com/specimen/Source+Code+Pro" rel="stylesheet">
   <style>
     /* Dark background and centered layout */
     body {
@@ -11,10 +12,12 @@
       padding: 0;
       background-color: #080808; /* dark background */
       color: #ffffff;
-      font-family: Georgia, 'Times New Roman', serif;
+      font-family: 'Source Code Pro', sans-serif;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;   /* ← top alignment */
+      min-height: 100vh;         /* keeps body full height (optional) */
+      padding-top: 1.5rem;       /* optional: a tiny breathing room from the top */
       min-height: 100vh;
     }
 
@@ -145,7 +148,7 @@
 <body>
   <div class="container">
     <!-- Large main title -->
-    <h1>PARALLEL PSYCHOSIS 2</h1>
+    <h1>PARALLEL PSYCHOSIS 3</h1>
 
     <div class="lists-row">
       <section class="left-list">
