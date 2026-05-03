@@ -43,53 +43,56 @@
     /* Button list styling */
     /* Main container stays the same – it keeps everything centered */
     /* New row container: puts the two sections next to each other */
-    .button-list {
-      list-style: none;
-      padding-left: 0;             /* crucial – kills browser default padding */
-      margin: 0;
-      width: 100%;                 /* ensures the flex container spans the full column */
-      display: flex;
-      flex-direction: column;
-      align-items: center;         /* centers flex items horizontally */
-      gap: 0.75rem;
-    }
-    
+    /* Reset the row / columns */
     .lists-row {
       display: flex;
-      justify-content: space-between;  /* one left, one right */
-      align-items: flex-start;         /* top‑align the sections */
-      gap: 2rem;                       /* optional space between */
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
       margin-top: 1rem;
     }
     
-    /* Give each section a bit of width and remove default margins */
     .left-list,
     .right-list {
       flex: 1;
       margin: 0;
-      text-align: center;          /* centers the h2 and any inline content */
+      padding: 0;               /* just in case */
     }
-
+    
+    /* Titles – keep centered */
     .left-list h2,
     .right-list h2 {
-      text-align: center;          /* explicit centering */
-      margin-bottom: 0.5rem;
+      text-align: center;
+      margin: 0 0 0.5rem 0;
     }
     
-    /* Button lists: align the columns of buttons to the corresponding side */
-    .left-list .button-list {
-      align-items: center;         /* buttons hug the left */
+    /* The list itself – kill ALL default spacing */
+    .button-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;               /* remove default left padding */
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;      /* horizontal centering for flex children */
+      gap: 0.75rem;
     }
     
-    .right-list .button-list {
-      align-items: center;           /* buttons hug the right */
+    /* List items – no default spacing */
+    .button-list li {
+      margin: 0;
+      padding: 0;
+      width: 100%;              /* let the <a> inside control the width */
+      display: flex;
+      justify-content: center;  /* fallback centering of inline content */
     }
-
-    /* Button links */
+    
+    /* Buttons – no invisible auto margins, and a consistent box model */
     .btn {
-      display: inline-block;
+      display: inline-block;    /* or block; both work */
       width: 100%;
       max-width: 300px;
+      margin: 0;                /* ← critical: no auto margins on sides */
       padding: 12px 20px;
       background-color: #4a90e2;
       color: white;
@@ -97,6 +100,8 @@
       border-radius: 8px;
       font-size: 1.1rem;
       font-weight: 600;
+      text-align: center;
+      box-sizing: border-box;   /* padding doesn't add extra width */
       transition: background-color 0.2s ease;
     }
 
@@ -117,7 +122,7 @@
 <body>
   <div class="container">
     <!-- Large main title -->
-    <h1>PARALLEL PSYCHOSIS 1</h1>
+    <h1>PARALLEL PSYCHOSIS 2</h1>
 
     <div class="lists-row">
       <section class="left-list">
