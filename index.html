@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Link Hub</title>
+  <style>
+    /* Dark background and centered layout */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a; /* dark background */
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      padding: 2rem 1rem;
+    }
+
+    /* Large main title */
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #ffffff;
+    }
+
+    /* Smaller titles for each list */
+    h2 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+      color: #dddddd;
+    }
+
+    /* Button list styling */
+    .button-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Button links */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      max-width: 300px;
+      padding: 12px 20px;
+      background-color: #4a90e2;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #357abd;
+    }
+
+    /* Optional: second list could have slightly different style */
+    .list-two .btn {
+      background-color: #e25c4a;
+    }
+
+    .list-two .btn:hover {
+      background-color: #c0493a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Large main title -->
+    <h1>My Link Collection</h1>
+
+    <!-- First list with smaller title -->
+    <section>
+      <h2>Useful Tools</h2>
+      <ul class="button-list">
+        <li><a href="https://github.com" class="btn" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://stackoverflow.com" class="btn" target="_blank" rel="noopener">Stack Overflow</a></li>
+        <li><a href="https://developer.mozilla.org" class="btn" target="_blank" rel="noopener">MDN Web Docs</a></li>
+      </ul>
+    </section>
+
+    <!-- Second list with smaller title -->
+    <section class="list-two">
+      <h2>Learning Platforms</h2>
+      <ul class="button-list">
+        <li><a href="https://www.freecodecamp.org" class="btn" target="_blank" rel="noopener">freeCodeCamp</a></li>
+        <li><a href="https://www.codecademy.com" class="btn" target="_blank" rel="noopener">Codecademy</a></li>
+        <li><a href="https://www.khanacademy.org" class="btn" target="_blank" rel="noopener">Khan Academy</a></li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
