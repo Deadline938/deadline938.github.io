@@ -45,11 +45,12 @@
     /* New row container: puts the two sections next to each other */
     .button-list {
       list-style: none;
-      padding: 0;
+      padding-left: 0;             /* crucial – kills browser default padding */
       margin: 0;
+      width: 100%;                 /* ensures the flex container spans the full column */
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center;         /* centers flex items horizontally */
       gap: 0.75rem;
     }
     
@@ -62,9 +63,17 @@
     }
     
     /* Give each section a bit of width and remove default margins */
+    .left-list,
+    .right-list {
+      flex: 1;
+      margin: 0;
+      text-align: center;          /* centers the h2 and any inline content */
+    }
+
     .left-list h2,
     .right-list h2 {
-      text-align: center;
+      text-align: center;          /* explicit centering */
+      margin-bottom: 0.5rem;
     }
     
     /* Button lists: align the columns of buttons to the corresponding side */
@@ -112,7 +121,7 @@
 
     <div class="lists-row">
       <section class="left-list">
-        <h2>Useful Tools</h2>
+        <h2>Characters</h2>
         <ul class="button-list">
           <li><a href="https://github.com" class="btn" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://stackoverflow.com" class="btn" target="_blank" rel="noopener">Stack Overflow</a></li>
@@ -120,7 +129,7 @@
         </ul>
       </section>
       <section class="right-list">
-        <h2>Learning Platforms</h2>
+        <h2>Universes</h2>
         <ul class="button-list">
           <li><a href="https://github.com" class="btn" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://stackoverflow.com" class="btn" target="_blank" rel="noopener">Stack Overflow</a></li>
