@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deadline / PP</title>
+  <title>Wikipedia‑Style Article (Full‑Width Dark Mode)</title>
   <style>
-    /* Wikipedia‑like styling (light version) */
+    /* DARK MODE FULL-WIDTH WIKIPEDIA LAYOUT */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
-      background-color: #f8f9fa;
-      color: #202122;
+      background-color: #1a1a1a;        /* dark background */
+      color: #ddd;                      /* light text */
     }
 
-    /* Main container: centers the content area */
+    /* Full‑width container: three columns, no max‑width */
     .page-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 16px;
+      width: 100%;
+      margin: 0;
+      padding: 0;
       display: flex;
-      gap: 20px;
+      gap: 0;                           /* no gap – we use borders instead */
       align-items: flex-start;
     }
 
@@ -29,22 +29,25 @@
       width: 220px;
       flex-shrink: 0;
       position: sticky;
-      top: 16px;
-      background: #f8f9fa;
-      border: 1px solid #a2a9b1;
-      border-radius: 2px;
-      padding: 12px;
+      top: 0;
+      background: #2a2a2a;
+      border-right: 1px solid #444;
+      padding: 20px 16px;
       font-family: sans-serif;
       font-size: 0.9rem;
+      color: #ccc;
+      box-sizing: border-box;
+      min-height: 100vh;
     }
     .toc-sidebar h2 {
       font-family: sans-serif;
       font-size: 1rem;
-      margin: 0 0 8px 0;
+      margin: 0 0 10px 0;
       text-align: center;
       font-weight: bold;
-      border-bottom: 1px solid #a2a9b1;
-      padding-bottom: 4px;
+      color: #eee;
+      border-bottom: 1px solid #555;
+      padding-bottom: 6px;
     }
     .toc-sidebar ul {
       list-style: none;
@@ -55,22 +58,24 @@
       margin: 4px 0;
     }
     .toc-sidebar a {
-      color: #0645ad;
+      color: #8ab4f8;
       text-decoration: none;
     }
     .toc-sidebar a:hover {
       text-decoration: underline;
     }
 
-    /* ===== CENTER CONTENT ===== */
+    /* ===== CENTER: Main article ===== */
     .article-content {
-      flex: 1;
+      flex: 1;                           /* fills remaining width */
       min-width: 0;
-      background: white;
-      border: 1px solid #a2a9b1;
+      background: #2a2a2a;
+      border-left: 1px solid #444;
+      border-right: 1px solid #444;
       padding: 24px 32px;
-      border-radius: 2px;
+      box-sizing: border-box;
       line-height: 1.6;
+      color: #ddd;
     }
 
     /* Article title */
@@ -79,48 +84,67 @@
       font-size: 2.2rem;
       font-weight: normal;
       margin: 0 0 4px 0;
-      border-bottom: 1px solid #a2a9b1;
+      border-bottom: 1px solid #444;
       padding-bottom: 4px;
+      color: #f0f0f0;
     }
     .article-subtitle {
       font-family: sans-serif;
       font-size: 0.9rem;
-      color: #54595d;
+      color: #aaa;
       margin: 0 0 20px 0;
     }
 
-    /* Right infobox */
+    /* Sections */
+    h2 {
+      font-family: 'Linux Libertine', 'Georgia', serif;
+      font-size: 1.5rem;
+      border-bottom: 1px solid #444;
+      margin-top: 30px;
+      margin-bottom: 8px;
+      color: #f0f0f0;
+    }
+    p {
+      margin: 0.5em 0;
+    }
+    a {
+      color: #8ab4f8;
+    }
+
+    /* ===== RIGHT SIDEBAR: Infobox ===== */
     .infobox {
       width: 270px;
       flex-shrink: 0;
-      background: #f8f9fa;
-      border: 1px solid #a2a9b1;
-      border-radius: 2px;
-      padding: 8px;
+      background: #2a2a2a;
+      border-left: 1px solid #444;
+      padding: 16px;
       font-family: sans-serif;
       font-size: 0.85rem;
+      box-sizing: border-box;
+      color: #ddd;
     }
     .infobox-title {
       font-size: 1.1rem;
       font-weight: bold;
       text-align: center;
-      margin: 0 0 8px 0;
-      background: #eaecf0;
-      padding: 4px;
+      margin: 0 0 10px 0;
+      background: #3a3a3a;
+      padding: 6px;
+      color: #fff;
     }
     .infobox-image {
       text-align: center;
-      padding: 4px;
+      padding: 6px;
     }
     .infobox-image img {
       max-width: 100%;
       height: auto;
-      border: 1px solid #c8ccd1;
+      border: 1px solid #555;
     }
     .infobox-row {
       display: flex;
-      border-top: 1px solid #c8ccd1;
-      padding: 4px 2px;
+      border-top: 1px solid #555;
+      padding: 6px 2px;
     }
     .infobox-row-label {
       font-weight: bold;
@@ -128,16 +152,7 @@
       flex-shrink: 0;
     }
 
-    /* Section headings */
-    h2 {
-      font-family: 'Linux Libertine', 'Georgia', serif;
-      font-size: 1.5rem;
-      border-bottom: 1px solid #a2a9b1;
-      margin-top: 30px;
-      margin-bottom: 8px;
-    }
-
-    /* Responsive stacking */
+    /* ===== RESPONSIVE (stack on narrow screens) ===== */
     @media (max-width: 900px) {
       .page-container {
         flex-direction: column;
@@ -146,6 +161,13 @@
       .infobox {
         width: 100%;
         position: static;
+        border: none;
+        border-bottom: 1px solid #444;
+        min-height: auto;
+      }
+      .article-content {
+        border-left: none;
+        border-right: none;
       }
     }
   </style>
@@ -161,6 +183,7 @@
         <li><a href="#section2">2. Characteristics</a></li>
         <li><a href="#section3">3. Modern usage</a></li>
         <li><a href="#section4">4. See also</a></li>
+        <li><a href="#section5">5. External links</a></li>
       </ul>
     </nav>
 
@@ -170,29 +193,34 @@
       <p class="article-subtitle">From Wikipedia, the free encyclopedia</p>
 
       <p>
-        This is a demonstration of a Wikipedia‑style layout. You can replace the text and images with your own content.
+        This is a full‑width dark‑mode demonstration of a Wikipedia‑style page. The content area expands to fill the browser width, while the sidebar and infobox remain fixed.
       </p>
 
-      <h2 id="section1">History</h2>
+      <h2 id="section1">1. History</h2>
       <p>
-        The first paragraph of the history section goes here. Wikipedia articles typically begin with a brief overview before diving into detailed sections. 
-        You can write as many paragraphs as you need and use <a href="#">internal links</a> to other pages.
+        The history section contains an overview of the subject’s origin and development. Wikipedia articles often start with a short introduction before detailed sections. You can include references and internal links to other articles.
       </p>
 
-      <h2 id="section2">Characteristics</h2>
+      <h2 id="section2">2. Characteristics</h2>
       <p>
-        Key characteristics of the subject are described in this section. Use bullet points or numbered lists when appropriate.
+        Key characteristics are summarised here. You may use bullet points, numbered lists, or tables to present information clearly.
       </p>
 
-      <h2 id="section3">Modern usage</h2>
+      <h2 id="section3">3. Modern usage</h2>
       <p>
-        Today, the subject plays a role in various fields. The layout keeps the table of contents on the left, the article in the middle, and an infobox on the right.
+        Today, the subject is applied in numerous fields. The layout keeps the table of contents on the left, the main article in the centre, and an infobox on the right – all in a full‑width dark theme.
       </p>
 
-      <h2 id="section4">See also</h2>
+      <h2 id="section4">4. See also</h2>
       <ul>
         <li><a href="#">Related article one</a></li>
         <li><a href="#">Related article two</a></li>
+      </ul>
+
+      <h2 id="section5">5. External links</h2>
+      <ul>
+        <li><a href="#">Official website</a></li>
+        <li><a href="#">Example resource</a></li>
       </ul>
     </main>
 
@@ -201,7 +229,7 @@
       <div class="infobox-title">Sample Subject</div>
       <div class="infobox-image">
         <!-- Replace with your own image URL -->
-        <img src="https://via.placeholder.com/250x150" alt="Placeholder image">
+        <img src="https://via.placeholder.com/250x150/444/fff?text=Dark+Mode+Image" alt="Placeholder">
       </div>
       <div class="infobox-row">
         <span class="infobox-row-label">Type</span>
