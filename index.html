@@ -1,180 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parallel Psychosis</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
-  <style>
-    /* Dark background and centered layout */
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #080808; /* dark background */
-      color: #ffffff;
-      font-family: 'Source Code Pro', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;   /* ← top alignment */
-      min-height: 100vh;         /* keeps body full height (optional) */
-      padding-top: 1.5rem;       /* optional: a tiny breathing room from the top */
-      min-height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Psychosis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
 
-    .container {
-      text-align: center;
-      max-width: 800px;
-      width: 90%;
-      padding: 2rem 1rem;
-    }
+    <style>
+        body {
+            background-color: #070707;
+            color: #fff;
+            font-family: 'Source Code Pro', sans-serif;
+            text-align: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
 
-    /* Large main title */
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      color: #ffffff;
-    }
+        h1 {
+            font-size: 2rem;
+        }
 
-    /* Smaller titles for each list */
-    h2 {
-      font-size: 1.5rem;
-      margin: 2rem 0 1rem;
-      color: #dddddd;
-    }
+        h2 {
+            font-size: 1.5rem;
+            margin: 0 0 0 0;
+        }
 
-    .lists-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    
-    .left-list,
-    .right-list {
-      flex: 1;
-      margin: 0;
-      padding: 0;               /* just in case */
-    }
-    
-    /* Titles – keep centered */
-    .left-list h2,
-    .right-list h2 {
-      text-align: center;
-      margin: 0 0 0.5rem 0;
-    }
-    
-    /* The list itself – kill ALL default spacing */
-    .button-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;               /* remove default left padding */
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;      /* horizontal centering for flex children */
-      gap: 0.75rem;
-    }
-    
-    /* List items – no default spacing */
-    .button-list li {
-      margin: 0;
-      padding: 0;
-      width: 100%;              /* let the <a> inside control the width */
-      display: flex;
-      justify-content: center;  /* fallback centering of inline content */
-    }
-    
-    /* Buttons – no invisible auto margins, and a consistent box model */
-    .btn {
-      display: inline-block;    /* or block; both work */
-      width: 100%;
-      max-width: 300px;
-      margin: 0;                /* ← critical: no auto margins on sides */
-      padding: 12px 20px;
-      background-color: #4a90e2;
-      color: white;
-      text-decoration: none;
-      border-radius: 3px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-align: center;
-      box-sizing: border-box;   /* padding doesn't add extra width */
-      transition: filter 0.2s ease, background-color 0.2s ease;
-    }
+        .x-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2%;
+            width: 90%;
+            margin-left: 2.5%;
+        }
 
-    .btn:hover {
-      filter: brightness(0.85);
-    }
-    
-    .btn-deadline {
-      background-color: #141414;
-      color: #e3173c;
-      outline: 2px solid #e3173c;
-      outline-offset: 0px;
-    }
+        .x-list li {
+            width: 100%;
+        }
 
-    .btn-tenebris {
-      background-color: #1f1d21;
-      color: #60596b;
-      outline: 2px solid #60596b;
-      outline-offset: 0px;
-    }
+        .y-list {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            justify-content: flex-start;
+            gap: 1.25rem;
+        }
 
-    .btn-lucidius {
-      background-color: #ededed;
-      color: #ddb82b;
-      outline: 2px solid #ddb82b;
-      outline-offset: 0px;
-    }
+        .button {
+            background-color:#0a0a0a;
+            position: relative;
+            color: #e3173c;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: visible;
+            isolation: isolate;
+            box-shadow: 0 0 0 2px currentColor;
+            border-radius: 6px;
+            --spot-color: rgb(255, 251, 253);
+            transition: box-shadow 0.3s ease;
+        }
 
-    .btn-space-theater {
-      background-color: #e7e7e7;
-      color: #e3173c;
-      outline: 2px solid #e3173c;
-      outline-offset: 0px;
-    }
+        .tenebris {
+            background-color: #121113;
+            color: #49454e;
+            --spot-color: rgba(31, 27, 36, 0.548);
+        }
 
-    .btn-space-server {
-      background-color: #3b3c41;
-      color: #888a93;
-      outline: 2px solid #888a93;
-      outline-offset: 0px;
-    }
+        .lucidius {
+            background-color: rgb(58, 56, 41);
+            color: rgb(221, 165, 43);
+            --spot-color: rgb(255, 241, 180);
+        }
 
-  </style>
+        .death {
+            background-color: #292929;
+            color: rgb(255, 255, 255);
+            --spot-color: rgba(255, 255, 255, 0.548);
+        }
+
+        .creation {
+            background-color: #41362d;
+            color: rgb(192, 142, 50);
+            --spot-color: rgba(0, 0, 0, 0.253);
+        }
+
+        .null {
+            background-color: #1a191b;
+            color: #4533aa;
+            --spot-color: rgba(56, 95, 143, 0.801);
+        }
+
+        .chaos {
+            background-color: #181617;
+            color: rgb(192, 22, 87);
+            --spot-color: rgb(255, 0, 221);
+        }
+
+        .prevention {
+            background-color: #181617;
+            color: rgb(255, 167, 36);
+            --spot-color: rgb(255, 102, 0);
+        }
+
+        .revelation {
+            background-color: #181617;
+            color: rgb(65, 133, 179);
+            --spot-color: rgb(0, 68, 255);
+        }
+
+        .order {
+            background-color: rgb(48, 72, 73);
+            color: rgb(201, 240, 238);
+            --spot-color: rgba(62, 97, 114, 0.664);
+        }
+
+        .vacuum {
+            background-color: #2a2c41;
+            color: #8a8f9c;
+            --spot-color: rgba(60, 122, 194, 0.39);
+        }
+
+        .ssfffoddkset {
+            background-color: #121113;
+            color: #5c2222;
+            --spot-color: rgba(245, 9, 9, 0.548);
+        }
+
+        .omega-ent {
+            background-color: rgb(231, 231, 231);
+            --spot-color: rgb(121, 0, 46);
+        }
+
+        .serverside {
+            color: rgb(136, 138, 147);
+            background-color: rgb(59, 60, 65);
+            --spot-color: rgb(104, 104, 104);
+        }
+
+        .monostasis {
+            background-color: #141420;
+            color: #979244;
+            --spot-color: rgb(255, 208, 107);
+        }
+
+        .fellouter {
+            background-color: #2b2023;
+            color: #b38b99;
+            --spot-color: rgb(109, 94, 104);
+        }
+
+        .outertale {
+            background-color: #181729;
+            color: #6162a0;
+            --spot-color: rgba(77, 27, 110, 0.397);
+        }
+
+        .soulform {
+            background-color: #3b1d2f;
+            color: #bb3367;
+            --spot-color: rgb(255, 216, 219);
+        }
+
+        .storyshift {
+            background-color: #172514;
+            color: #52a539;
+            --spot-color: rgb(227, 255, 216);
+        }
+
+        .underswap {
+            background-color: #141b25;
+            color: #3974a5;
+            --spot-color: rgb(217, 216, 255);
+        }
+
+        .negativetale {
+            background-color: #2c2826;
+            color: #a76946;
+            --spot-color: rgb(70, 64, 64);
+        }
+
+        .underexpress {
+            background-color: #1f1c1c;
+            color: #8a4f44;
+            --spot-color: rgba(70, 64, 64, 0.623);
+        }
+
+        .undersplit {
+            background-color: #0e0e0e;
+            color: #546272;
+            --spot-color: rgb(68, 71, 56);
+        }
+
+        .utsos {
+            background-color: #0e0e0e;
+            color: #adadad;
+            --spot-color: rgb(54, 50, 50);
+        }
+
+        .otts {
+            background-color: #0a090e;
+            color: #675f86;
+            --spot-color: rgb(54, 50, 50);
+        }
+
+        .uskr {
+            background-color: #11161b;
+            color: #49519b;
+            --spot-color: rgba(64, 34, 99, 0.589);
+        }
+
+        .harddust {
+            background-color: #1b1111;
+            color: #9b5c49;
+            --spot-color: rgba(95, 75, 59, 0.767);
+        }
+
+        .utsy {
+            background-color: #0f0d0d;
+            color: #a78d8d;
+            --spot-color: rgb(53, 41, 41);
+        }
+
+        .utwp {
+            background-color: #0e0e0e;
+            color: #7a7a7a;
+            --spot-color: rgb(54, 50, 50);
+        }
+
+        .slf {
+            background-color: #0f0d0d;
+            color: #8a5151;
+            --spot-color: rgb(161, 30, 30);
+        }
+
+        .vitaltale {
+            background-color: #1b1611;
+            color: #da6028;
+            --spot-color: rgb(87, 87, 87);
+        }
+
+        .creep {
+            background-color: #110c0c;
+            color: #863333;
+            --spot-color: rgba(161, 30, 30, 0.623);
+        }
+
+        .glorp {
+            background-color: #1b2420;
+            color: #4f9265;
+            --spot-color: rgb(89, 105, 82);
+        }
+
+        .brainrot {
+            background-color: #2b2828;
+            color: #a52e2e;
+            --spot-color: rgba(163, 91, 91, 0.623);
+        }
+
+        .button::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 10px;
+            pointer-events: none;
+            opacity: 0;                        
+            transition: opacity 0.3s ease;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+                                        var(--spot-color, rgba(0,0,0,0.7)) 0%,
+                                        transparent 150%);
+            mix-blend-mode: overlay;
+        }
+
+        .button:hover {
+            box-shadow: 0 0 0 3px currentColor;
+        }
+
+        .button:hover::after {
+            opacity: 1;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <!-- Large main title -->
     <h1>PARALLEL PSYCHOSIS</h1>
+    <ul class="x-list">
+        <li><ul class="y-list">
+            <h2>Residents</h2>
+            <li><a href="/deadline/" class="button">Deadline</a></li>
+            <li>——————————— DEITIES ———————————</li>
+            <li><a href="https://github.com" class="button lucidius">Lucidius</a></li>
+            <li><a href="https://github.com" class="button tenebris">Tenebris</a></li>
+            <li>——————— HIGHER ESSENCES ———————</li>
+            <li><a href="https://github.com" class="button creation">Creation</a></li>
+            <li><a href="https://github.com" class="button death">Destruction</a></li>
+            <li><a href="https://github.com" class="button null">Null</a></li>
+            <li>———————— LOWER ESSENCES ————————</li>
+            <li><a href="https://github.com" class="button chaos">Chaos</a></li>
+            <li><a href="https://github.com" class="button order">Order</a></li>
+            <li>—————————— GUARDIANS ——————————</li>
+            <li><a href="https://github.com" class="button prevention">Prevention</a></li>
+            <li><a href="https://github.com" class="button revelation">Revelation</a></li>
+            <li>—————————— TRAVELERS ——————————</li>
+            <li><a href="https://github.com" class="button vacuum">Vacuum Sans</a></li>
+            <li><a href="https://github.com" class="button death">AfterFresh Sans</a></li>
+            <li><a href="https://github.com" class="button ssfffoddkset">SSFFFODDKSET Sans</a></li>
+            <li>—————————— PARASITES ——————————</li>
+            <li><a href="https://github.com" class="button creep">Creep</a></li>
+            <li><a href="https://github.com" class="button glorp">Glorp</a></li>
+            <li><a href="https://github.com" class="button brainrot">Brainrot</a></li>
+            <li><a href="https://github.com" class="button death">Idiot</a></li>
+        </ul></li>
 
-    <div class="lists-row">
-      <section class="left-list">
-        <h2>Characters</h2>
-        <ul class="button-list">
-          <li><a href="/deadline/" class="btn btn-deadline" target="_blank" rel="noopener">Deadline</a></li>
-          <li class="separator">—— Deities ——</li>
-          <li><a href="https://github.com" class="btn btn-tenebris" target="_blank" rel="noopener">Tenebris</a></li>
-          <li><a href="https://github.com" class="btn btn-lucidius" target="_blank" rel="noopener">Lucidius</a></li>
-        </ul>
-      </section>
-      <section class="right-list">
-        <h2>Spaces</h2>
-        <ul class="button-list">
-          <li><a href="https://github.com" class="btn btn-space-theater" target="_blank" rel="noopener">Ω Entertainment</a></li>
-          <li><a href="https://github.com" class="btn btn-space-server" target="_blank" rel="noopener">Serverside</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
+        <li><ul class="y-list">
+            <h2>Spaces</h2>
+            <li><a href="https://github.com" class="button omega-ent">Ω-Entertainment</a></li>
+            <li><a href="https://github.com" class="button serverside">The Serverside</a></li>
+        </ul></li>
+
+        <li><ul class="y-list">
+            <h2>Universes</h2>
+            <li><a href="https://github.com" class="button monostasis">Monostasis</a></li>
+            <li><a href="https://github.com" class="button negativetale">Negativetale</a></li>
+            <li><a href="https://github.com" class="button outertale">Outertale</a></li>
+            <li><a href="https://github.com" class="button serverside">Overliminal</a></li>
+            <li><a href="https://github.com" class="button soulform">Soulform</a></li>
+            <li><a href="https://github.com" class="button storyshift">Storyshift</a></li>
+            <li><a href="https://github.com" class="button fellouter">Thermal Fall</a></li>
+            <li><a href="https://github.com" class="button underexpress">Underexpress</a></li>
+            <li><a href="https://github.com" class="button undersplit">Undersplit</a></li>
+            <li><a href="https://github.com" class="button underswap">Underswap</a></li>
+        </ul></li>
+
+        <li><ul class="y-list">
+            <h2>Timelines</h2>
+            <li>—————————— DUSTTALE ——————————</li>
+            <li><a href="https://github.com" class="button utsos">Undertale: Symphony of Silence</a></li>
+            <li><a href="https://github.com" class="button otts">Outertale: Singularity</a></li>
+            <li><a href="https://github.com" class="button uskr">Underswap: Karmic Retribution</a></li>
+            <li><a href="https://github.com" class="button harddust">Hardtale: Dusttale</a></li>
+            <li>—————————— UNDERTALE ——————————</li>
+            <li><a href="https://github.com" class="button utsy">Undertale: See Yourself</a></li>
+            <li><a href="https://github.com" class="button utwp">Undertale: White Plague</a></li>
+            <li>——————————— UNIONS ———————————</li>
+            <li><a href="https://github.com" class="button slf">Skies Long Fallen</a></li>
+            <li>————————————— MISC —————————————</li>
+            <li><a href="https://github.com" class="button vitaltale">Vitaltale</a></li>
+        </ul></li>
+    </ul>
+
+    <script>
+        const buttons = document.querySelectorAll('.button');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                btn.style.setProperty('--x', `${x}%`);
+                btn.style.setProperty('--y', `${y}%`);
+            });
+        });
+    </script>
 </body>
-</html>
-
-
-
-
-
-
