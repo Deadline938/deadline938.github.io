@@ -609,7 +609,7 @@
         if (attrMatch) {
           el.setAttribute(attrMatch[1], i18next.t(attrMatch[2]));
         } else {
-          el.textContent = i18next.t(key);
+          el.innerHTML = i18next.t(key);
         }
       });
     }
