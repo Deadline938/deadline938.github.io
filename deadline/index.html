@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <title>Deadline3</title>
+  <title>Deadline4</title>
   <style>
     body {
       margin: 0;
@@ -620,12 +620,23 @@
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         const attrMatch = key.match(/^\[(\w+)\](.+)/);
+        
         if (attrMatch) {
+          // Translating an attribute like [alt]img.starmap
           const attr = attrMatch[1];
           const attrKey = attrMatch[2];
-          el.setAttribute(attr, i18next.t(attrKey));
+          const translated = i18next.t(attrKey);
+          // Only change the attribute if a translation was found (i.e., not just the key itself)
+          if (translated && translated !== attrKey) {
+            el.setAttribute(attr, translated);
+          }
         } else {
-          el.textContent = i18next.t(key);
+          // Translating plain text content
+          const translated = i18next.t(key);
+          if (translated && translated !== key) {
+            el.textContent = translated;
+          }
+          // If the translation is missing (e.g., English), leave the original HTML text alone
         }
       });
     }
