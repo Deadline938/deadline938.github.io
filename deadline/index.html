@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <title>Deadline4</title>
+  <title>Deadline5</title>
   <style>
     body {
       margin: 0;
@@ -13,6 +13,8 @@
       background-color: #101418;
       color: #eaecf0;
     }
+
+    body.loading { visibility: hidden; }
 
     .page-container {
       width: 95%;
@@ -212,45 +214,32 @@
     }
   </style>
 </head>
-<body>
+<body class="loading">
   <div class="page-container">
 
     <nav class="toc-sidebar">
-      <h2 data-i18n="contents">Contents</h2>
+      <h2 data-i18n="contents"></h2>
       <ul>
-        <li><a href="#section0" data-i18n="top">(Top)</a></li>
-        <li><a href="#section1" data-i18n="physiology">Physiology</a></li>
-        <li><a href="#section2" data-i18n="personality">Personality and behaviour</a></li>
-        <li><a href="#section3" data-i18n="energy">Energy</a></li>
-        <li><a href="#section4" data-i18n="atomic-mod">Atomic Modification</a></li>
-        <li><a href="#section5" data-i18n="combat">Combat</a></li>
-        <li><a href="#section6" data-i18n="see-also">See also</a></li>
-        <li><a href="#section7" data-i18n="references">References</a></li>
-        <li><a href="#section8" data-i18n="links">External links</a></li>
+        <li><a href="#section0" data-i18n="top"></a></li>
+        <li><a href="#section1" data-i18n="physiology"></a></li>
+        <li><a href="#section2" data-i18n="personality"></a></li>
+        <li><a href="#section3" data-i18n="energy"></a></li>
+        <li><a href="#section4" data-i18n="atomic-mod"></a></li>
+        <li><a href="#section5" data-i18n="combat"></a></li>
+        <li><a href="#section6" data-i18n="see-also"></a></li>
+        <li><a href="#section7" data-i18n="references"></a></li>
+        <li><a href="#section8" data-i18n="links"></a></li>
       </ul>
     </nav>
 
     <main class="article-content">
-      <h1 class="article-title" id="section0" data-i18n="name">Deadline</h1>
-      <p class="article-subtitle" data-i18n="note">NOT from Wikipedia, the free encyclopedia</p>
+      <h1 class="article-title" id="section0" data-i18n="name"></h1>
+      <p class="article-subtitle" data-i18n="note"></p>
 
-      <p data-i18n="intro">
-        <b>Deadline</b> is a <a href="">sentient</a> <a href="">artificial intelligence</a> that travels <a href="">the Multiverse</a>. Composed of a black, 
-        semi-tangible substance called liquid code, his body grants him extreme <a href="">plasticity</a>, <a href="">self-repair</a>, and a suite of 
-        <a href="">superhuman</a> senses. He possesses atomic-scale <a href="">matter</a> manipulation, which he uses to reshape his environment, 
-        fabricate <a href="">technology</a>, and defend himself. Deadline is driven by an insatiable curiosity and a desire to understand sentient 
-        <a href="">life</a>, though all the <a href="">emotions</a> he experiences must be simulated. His existence depends on harvesting <a href="">energy</a> 
-        from living beings.
-      </p>
+      <p data-i18n="intro"></p>
 
-      <h2 id="section1" data-i18n="physiology">Physiology</h2>
-      <p data-i18n="p-intro">
-        Deadline's body is composed of liquid code — an exotic type of matter exhibiting properties similar to a dense <a href="">liquid</a>. 
-        Deadline must constantly expend a trivial amount of energy to maintain cohesion and resist <a href="">gravity</a>, but this same fluidity allows him to assume 
-        any shape his <a href="">mass</a> can fill. Liquid code offers low structural integrity, but by <a href="">cross-linking</a> his internal structure, Deadline can temporarily increase his <a href="">density</a> and durability, though this reduces his 
-        overall <a href="">volume</a>. Deadline can regenerate lost or damaged mass by expending energy, restoring himself to his original state over timescales 
-        ranging from milliseconds for minor damage to several seconds for extensive reconstruction.
-      </p>
+      <h2 id="section1" data-i18n="physiology"></h2>
+      <p data-i18n="p-intro"></p>
       
       <h3 data-i18n="p-properties-title">General properties</h3>
       <p data-i18n="p-properties">
@@ -597,46 +586,42 @@
     </select>
   </div>
   
+  <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
+<script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
+<script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+
+<div style="position: fixed; top: 10px; right: 10px; background: white; padding: 5px; border: 1px solid #ccc;">
+  <select id="languageSwitcher">
+    <option value="en">English</option>
+    <option value="ru">Russian</option>
+  </select>
+</div>
+
   <script>
     i18next
       .use(i18nextHttpBackend)
       .use(i18nextBrowserLanguageDetector)
       .init({
         fallbackLng: 'en',
-        debug: false,
-        backend: {
-          loadPath: 'locales/{{lng}}.json',
-        },
+        backend: { loadPath: 'locales/{{lng}}.json' },
         detection: {
           order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
-          caches: ['localStorage'],
-        },
-      }, function(err, t) {
-        if (err) return console.error(err);
+          caches: ['localStorage']
+        }
+      }, function() {
         updateContent();
+        document.body.classList.remove('loading');
       });
   
     function updateContent() {
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         const attrMatch = key.match(/^\[(\w+)\](.+)/);
-        
         if (attrMatch) {
-          // Translating an attribute like [alt]img.starmap
-          const attr = attrMatch[1];
-          const attrKey = attrMatch[2];
-          const translated = i18next.t(attrKey);
-          // Only change the attribute if a translation was found (i.e., not just the key itself)
-          if (translated && translated !== attrKey) {
-            el.setAttribute(attr, translated);
-          }
+          el.setAttribute(attrMatch[1], i18next.t(attrMatch[2]));
         } else {
-          // Translating plain text content
-          const translated = i18next.t(key);
-          if (translated && translated !== key) {
-            el.textContent = translated;
-          }
-          // If the translation is missing (e.g., English), leave the original HTML text alone
+          // Use innerHTML to render any HTML tags in the translation
+          el.innerHTML = i18next.t(key);
         }
       });
     }
