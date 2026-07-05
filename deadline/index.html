@@ -585,5 +585,58 @@
     </aside>
 
   </div>
+
+  <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
+  <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+  
+  <div style="position: fixed; top: 10px; right: 10px; background: white; padding: 5px; border: 1px solid #ccc;">
+    <select id="languageSwitcher">
+      <option value="en">English</option>
+      <option value="ru">Russian</option>
+    </select>
+  </div>
+  
+  <script>
+    i18next
+      .use(i18nextHttpBackend)
+      .use(i18nextBrowserLanguageDetector)
+      .init({
+        fallbackLng: 'en',
+        debug: false,
+        backend: {
+          loadPath: '/locales/{{lng}}.json',
+        },
+        detection: {
+          order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
+          caches: ['localStorage'],
+        },
+      }, function(err, t) {
+        if (err) return console.error(err);
+        updateContent();
+      });
+  
+    function updateContent() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const attrMatch = key.match(/^\[(\w+)\](.+)/);
+        if (attrMatch) {
+          const attr = attrMatch[1];
+          const attrKey = attrMatch[2];
+          el.setAttribute(attr, i18next.t(attrKey));
+        } else {
+          el.textContent = i18next.t(key);
+        }
+      });
+    }
+  
+    document.getElementById('languageSwitcher').addEventListener('change', function(e) {
+      i18next.changeLanguage(e.target.value, updateContent);
+    });
+  
+    i18next.on('languageChanged', function(lng) {
+      document.getElementById('languageSwitcher').value = lng;
+    });
+  </script>
 </body>
 </html>
