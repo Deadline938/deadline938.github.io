@@ -7,8 +7,6 @@
   <title>Deadline9</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
       font-family: sans-serif;
       background-color: #101418;
       color: #eaecf0;
@@ -17,13 +15,9 @@
     body.loading { visibility: hidden; }
 
     .page-container {
-      width: 95%;
-      margin: 0 auto;
-      padding: 0;
       display: flex;
-      gap: 0;
       align-items: flex-start;
-      margin-top: 25px;
+      margin: 0 3rem;
     }
 
     a {
@@ -36,105 +30,71 @@
       text-decoration: underline;
     }
 
-    .toc-sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      position: sticky;
-      top: 0;
+    .contents {
       background: #101418;
       padding: 20px 16px;
       font-family: sans-serif;
       font-size: 0.9rem;
-      color: #ccc;
       box-sizing: border-box;
-      min-height: 100vh;
+      position: sticky;
+      top: 0;
+      flex-basis: 240px;
+      flex-shrink: 0;
+      margin-top: 43px;
     }
-    .toc-sidebar h2 {
+    .contents h2 {
       font-family: sans-serif;
       font-size: 0.9rem;
       margin: 0 0 10px 0;
       text-align: left;
       font-weight: bold;
       color: #eee;
-      border-bottom: 1px solid #555;
+      border-bottom: 1px solid rgb(39, 41, 45);
       padding-bottom: 6px;
     }
-    .toc-sidebar ul {
+    .contents ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    .toc-sidebar li {
+    .contents li {
       margin: 4px 0;
-      padding-bottom: 5px;
+      padding-bottom: 7px;
     }
 
     .article-content {
-      flex: 1;
-      min-width: 0;
       background: #101418;
       padding: 24px 32px;
       box-sizing: border-box;
       line-height: 1.6;
       color: #ddd;
     }
-
     .article-title {
       font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
       font-size: 2.2rem;
       font-weight: normal;
-      margin: 0 0 4px 0;
-      border-bottom: 1px solid #444;
-      padding-bottom: 4px;
+      margin: 0;
       color: #f0f0f0;
     }
     .article-subtitle {
       font-family: sans-serif;
       font-size: 0.9rem;
-      margin: 0 0 20px 0;
-    }
-
-    h2 {
-      font-family: 'Linux Libertine', 'Georgia', serif;
-      font-weight: normal;
-      font-size: 1.5rem;
-      border-bottom: 1px solid #444;
-      margin-top: 30px;
-      margin-bottom: 8px;
-      color: #f0f0f0;
-    }
-
-    h3 {
-      font-weight: bold;
-      font-size: 1.1rem;
       margin-top: 10px;
-      margin-bottom: 5px;
-      color: #f0f0f0;
-    }
-
-    p {
-      margin: 0 0 0.5em;
+      margin-bottom: 20px;
     }
 
     .infobox {
-      width: 270px;
-      flex-shrink: 0;
       background: #202122;
       outline: 1px solid #a2a9b1;
-      padding: 16px;
-      padding-top: 0px;
+      padding: 8px;
       font-family: sans-serif;
       font-size: 0.85rem;
-      box-sizing: border-box;
       color: #ddd;
-    }
-    .infobox-title {
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-align: center;
-      margin: 0 0 10px 0;
-      padding: 6px;
-      color: #fff;
+      float: right;
+      box-sizing: border-box;
+      margin-top: 80px;
+      min-width: 240px;
+      display: table;
     }
     .infobox-image {
       text-align: center;
@@ -145,15 +105,22 @@
       height: auto;
       border: 1px solid #555;
     }
-    .infobox-row {
-      display: flex;
-      border-top: 1px solid #555;
-      padding: 6px 2px;
-    }
-    .infobox-row-label {
+    .infoxbox-th {
+      text-align: left;
       font-weight: bold;
-      width: 90px;
-      flex-shrink: 0;
+      padding-right: 10px;
+    }
+    .infobox td, th {
+      padding-top: 10px;
+    }
+    .infobox-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+    }
+    .infobox tr {
+      vertical-align: top;
     }
 
     .wikitable {
@@ -186,38 +153,95 @@
 
     .imagebox {
       background-color: rgb(32, 33, 34);
-      float: right;
       width: min-content;
       margin-left: 1.4em;
       margin-bottom: 1.4em;
       border: 1px solid rgb(84, 89, 93);
       padding: 6px;
       font-size: 0.9rem;
+      float: right;
     }
 
-    @media (max-width: 900px) {
-      .page-container {
-        flex-direction: column;
-      }
-      .toc-sidebar,
-      .infobox {
-        width: 100%;
-        position: static;
-        border: none;
-        border-bottom: 1px solid #444;
-        min-height: auto;
-      }
-      .article-content {
-        border-left: none;
-        border-right: none;
-      }
+    .lang-button {
+      color:rgb(136, 163, 232);
+      font-weight: bold;
+      font-size: 0.9em;
+      margin-bottom: 5px;
+      user-select: none;
+      padding: 2px 10px;
+    }
+
+    .lang-button:hover {
+      background-color: rgb(27, 34, 61);
+      cursor: pointer;
+    }
+
+    .lang-button:active {
+      color: white;
+      outline: 1px solid rgb(183, 199, 238);
+    }
+
+    .lang-menu {
+      position: absolute; 
+      width: 560px; 
+      background-color: #101418; 
+      right: 320px; 
+      height: 50px; 
+      border: 1px solid rgb(84, 89, 93); 
+      top: 100px; 
+      box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      align-items: center;
+    }
+    .lang-menu.visible {
+      display: flex;
+    }
+
+    .lang-option {
+      color: rgb(136, 163, 232);
+      text-decoration: none;
+      margin-right: 5px;
+      font-size: 0.9em;
+      padding: 2px 70px 2px 20px;
+    }
+
+    .lang-option:hover {
+      color: #a6bbf5;
+      background-color: rgb(39, 41, 45);
+      cursor: pointer;
+    }
+
+    .lang-option.active {
+      color: rgb(167, 153, 205);
+    }
+
+    h2 {
+      font-family: 'Linux Libertine', 'Georgia', serif;
+      font-weight: normal;
+      font-size: 1.5rem;
+      border-bottom: 1px solid rgb(114, 119, 125);
+      margin-top: 30px;
+      margin-bottom: 8px;
+      color: #f0f0f0;
+      margin-right: auto;
+    }
+
+    h3 {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: #f0f0f0;
+    }
+
+    p {
+      margin: 0 0 0.5em;
     }
   </style>
 </head>
 <body class="loading">
   <div class="page-container">
-
-    <nav class="toc-sidebar">
+    <nav class="contents">
       <h2 data-i18n="contents"></h2>
       <ul>
         <li><a href="#section0" data-i18n="top"></a></li>
@@ -233,9 +257,18 @@
     </nav>
 
     <main class="article-content">
-      <h1 class="article-title" id="section0" data-i18n="name"></h1>
-      <p class="article-subtitle" data-i18n="note"></p>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid rgb(114, 119, 125);">
+        <h1 class="article-title" id="section0" data-i18n="name"></h1>
+        <div>
+          <div class="lang-button" id="lang-button" aria-expanded="false" aria-controls="lang-menu"  data-i18n="languages"></div>
+          <div id="lang-menu" class="lang-menu" hidden>
+            <div class="lang-option" data-lang="en">English</div>
+            <div class="lang-option" data-lang="ru">Русский</div>
+          </div>
+        </div>
+      </div>
 
+      <p class="article-subtitle" data-i18n="note"></p>
       <p data-i18n="intro"></p>
 
       <h2 id="section1" data-i18n="physiology"></h2>
@@ -497,53 +530,49 @@
         </ul>
     </main>
 
-    <aside class="infobox">
-      <div class="infobox-title" data-i18n="name">Deadline</div>
-      <div class="infobox-image">
-        <img src="sog.png" alt="Placeholder">
-      </div>
-      <div class="infobox-row">
-        <span class="infobox-row-label" data-i18n="born"></span>
-        <span data-i18n="unknown"></span>
-      </div>
-      <div class="infobox-row">
-        <span class="infobox-row-label" data-i18n="origin"></span>
-        <span><a href data-i18n="outerverse"></a></span>
-      </div>
-      <div class="infobox-row">
-        <span class="infobox-row-label" data-i18n="type"></span>
-        <span data-i18n="sentient-ai"></span>
-      </div>
-      <div class="infobox-row">
-        <span class="infobox-row-label" data-i18n="mass"></span>
-        <span data-i18n="mass-num"></span>
-      </div>
-      <div class="infobox-row">
-        <span class="infobox-row-label" data-i18n="height"></span>
-        <span data-i18n="height-num"></span>
-      </div>
-      <div class="infobox-row">
-        <span class="infobox-row-label" data-i18n="status"></span>
-        <span data-i18n="status-status"></span>
-      </div>
-      <div class="infobox-row">
-        <span class="infobox-row-label" data-i18n="pronouns"></span>
-        <span data-i18n="pronouns-list"></span>
-      </div>
-    </aside>
-
+    <table class="infobox">
+      <tr>
+        <th data-i18n="name" class="infobox-title" colspan="2"></th>
+      </tr>
+      <tr>
+        <td colspan="2" class="infobox-image">
+          <img src="sog.png" alt="Placeholder">
+        </td>
+      </tr>
+      <tr>
+        <th data-i18n="born" scope="row" class="infoxbox-th"></th>
+        <td data-i18n="unknown"><a href=""></a></td>
+      </tr>
+      <tr>
+        <th data-i18n="origin" scope="row" class="infoxbox-th"></th>
+        <td data-i18n="outerverse"><a href=""></a></td>
+      </tr>
+      <tr>
+        <th data-i18n="type" scope="row" class="infoxbox-th"></th>
+        <td data-i18n="sentient-ai"><a href=""></a></td>
+      </tr>
+      <tr>
+        <th data-i18n="mass" scope="row" class="infoxbox-th"></th>
+        <td data-i18n="mass-num"><a href=""></a></td>
+      </tr>
+      <tr>
+        <th data-i18n="height" scope="row" class="infoxbox-th"></th>
+        <td data-i18n="height-num"><a href=""></a></td>
+      </tr>
+      <tr>
+        <th data-i18n="status" scope="row" class="infoxbox-th"></th>
+        <td data-i18n="status-status"><a href=""></a></td>
+      </tr>
+      <tr>
+        <th data-i18n="pronouns" scope="row" class="infoxbox-th"></th>
+        <td data-i18n="pronouns-list"><a href=""></a></td>
+      </tr>
+    </table>
   </div>
 
   <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
   <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
   <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
-  
-  <div style="position: fixed; top: 10px; right: 10px; background: white; padding: 5px; border: 1px solid #ccc;">
-    <select id="languageSwitcher">
-      <option value="en">English</option>
-      <option value="ru">Russian</option>
-    </select>
-  </div>
   
   <script>
     i18next
@@ -571,14 +600,50 @@
           el.innerHTML = i18next.t(key);
         }
       });
+
+      document.querySelectorAll('.lang-option').forEach(btn => {
+        if (btn.dataset.lang === i18next.language) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
     }
-  
-    document.getElementById('languageSwitcher').addEventListener('change', function(e) {
-      i18next.changeLanguage(e.target.value, updateContent);
+
+    const trigger = document.getElementById('lang-button');
+    const menu = document.getElementById('lang-menu');
+
+    const toggleMenu = (show) => {
+      menu.classList.toggle('visible', show);
+      trigger.setAttribute('aria-expanded', show);
+    };
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.contains('visible');
+      toggleMenu(!isOpen);
     });
-  
-    i18next.on('languageChanged', function(lng) {
-      document.getElementById('languageSwitcher').value = lng;
+
+    document.addEventListener('click', (event) => {
+      if (menu.classList.contains('visible') && !menu.contains(event.target) && event.target !== trigger) {
+        toggleMenu(false);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('visible')) {
+        toggleMenu(false);
+        trigger.focus();
+      }
+    });
+    
+    document.querySelectorAll('.lang-option').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const lang = e.currentTarget.dataset.lang;
+        if (lang) {
+          i18next.changeLanguage(lang, updateContent);
+        }
+      });
     });
   </script>
  
