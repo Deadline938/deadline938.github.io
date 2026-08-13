@@ -56,9 +56,20 @@
             height: 100%;
             text-align: left;
             border: 2px solid transparent;
+            box-sizing: border-box;
+            position: relative;
+            /* box-shadow: 8px 8px var(--border-color); */
+            transition: box-shadow 0.25s ease-out, transform 0.2s ease-out;
+            cursor: pointer;
             background: 
                 linear-gradient(#070707, color-mix(in srgb, var(--border-color) 10%, black)) padding-box, 
                 linear-gradient(var(--border-color), color-mix(in srgb, var(--border-color) 60%, black)) border-box;
+        }
+
+        .grid-item:hover {
+            box-shadow: 0px 4px 8px color-mix(in srgb, var(--border-color) 15%, transparent),
+            0px 12px 24px color-mix(in srgb, var(--border-color) 10%, transparent);
+            transform: scale(1.02);
         }
 
         .resident-name {
