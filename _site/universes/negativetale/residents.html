@@ -334,20 +334,20 @@
                 overlay.classList.add('fade-out');
             });
 
-            document.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                if (link.host === window.location.host) {
-                e.preventDefault();
-                const href = link.href;
+            // document.querySelectorAll('a').forEach(function (link) {
+            //     link.addEventListener('click', function (e) {
+            //         if (link.host === window.location.host) {
+            //         e.preventDefault();
+            //         const href = link.href;
 
-                overlay.classList.remove('fade-out');
+            //         overlay.classList.remove('fade-out');
 
-                setTimeout(function () {
-                    window.location.href = href;
-                }, 350);
-                }
-            });
-            });
+            //         setTimeout(function () {
+            //             window.location.href = href;
+            //         }, 350);
+            //         }
+            //     });
+            // });
         });
     </script>
 </body>
