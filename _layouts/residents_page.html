@@ -1,0 +1,37 @@
+---
+layout: base
+---
+
+{% assign path_parts = page.path | split: "/" %}
+{% assign universe = path_parts[1] %}
+
+{% assign residents_dir = "/universes/" | append: universe | append: "/residents/" %}
+{% assign locations_dir = "/universes/" | append: universe | append: "/locations/" %}
+
+{% assign all_residents = site.pages | where_exp: "p", "p.dir contains residents_dir" %}
+{% assign all_locations = site.pages | where_exp: "p", "p.dir contains locations_dir" | sort: "order" %}
+
+{% for location in all_locations %}
+    <div class="location-sep" style="display: flex; margin: 40px 8% 0 8%; align-items: center;">
+        <div style="background-image: linear-gradient(to left, color-mix(in srgb, {{ location.color }} 15%, #2d2d2d), transparent); flex: 1; margin-right: 10px; height: 2px;"> </div>
+        <h2 style="text-transform: uppercase; color: color-mix(in srgb, {{ location.color }} 35%, white)">{{ location.title }}</h2>
+        <div style="background-image: linear-gradient(to right, color-mix(in srgb, {{ location.color }} 15%, #2d2d2d), transparent); flex: 1; margin-left: 10px; height: 2px;"> </div>
+    </div>
+    
+    {% assign location_name = location.codename %}
+    {% assign residents_here = all_residents | where_exp: "p", "p.location == location_name" | sort: "order" %}
+    <div class="grid-container">
+        <div class="grid">
+            {% for resident in residents_here %}
+            <div class="grid-item" style="--location-color: {{ location.color }}; --resident-color: {{ resident.color }};">
+                <img src="{{ resident.image | relative_url }}" alt="Placeholder" class="resident-icon">
+                <div class="resident-text">
+                    <p class="resident-name"><b>{{ resident.title }}</b></p>
+                    <p class="resident-role">{{ resident.role }}</p>
+                    <p class="resident-description">{{ resident.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

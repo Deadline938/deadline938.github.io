@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
-  <title>{{ page.title }}</title>
+  <title>Toriel</title>
   <style>
         body {
             font-family: 'Source Code Pro', sans-serif;
@@ -196,9 +196,18 @@
 </head>
 <body>
     <div id="page-transition-overlay"></div>
-    {% include topbar.html %}
+    <div class="topbar" id="topbar">
+    <div class="topbar-bg"></div>
+    <img src="/logo-placeholder.png" class="topbar-logo">
+    <div class="topbar-nav">
+        <a href="residents_page.html">Story</a>
+        <a href="residents_page.html">Gameplay</a>
+        <a href="residents_page.html">Residents</a>
+        <a href="locations_page.html">Locations</a>
+    </div>
+</div>
     <main>
-    {{ content }}
+    Toriel
     </main>
 
     <script>

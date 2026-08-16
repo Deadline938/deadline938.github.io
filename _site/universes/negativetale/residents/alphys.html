@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
-  <title>NEGATIVETALE</title>
+  <title>Alphys</title>
   <style>
         body {
             font-family: 'Source Code Pro', sans-serif;
@@ -46,7 +46,17 @@
             width: 85%;
         }
 
+        @property --item-color {
+        syntax: '<color>';
+        inherits: true;
+        initial-value: #cccccc;
+        }
+
         .grid-item {
+            --location-color: #cccccc;
+            --resident-color: #cccccc;
+            --item-color: var(--location-color);
+
             display: flex;
             align-items: flex-start;
             background-color: #070707;
@@ -59,17 +69,18 @@
             border: 2px solid transparent;
             box-sizing: border-box;
             position: relative;
-            transition: box-shadow 0.25s ease-out, transform 0.2s ease-out;
+            transition: box-shadow 0.25s ease-out, transform 0.2s ease-out, --item-color 0.25s ease-out;
             cursor: pointer;
             background: 
-                linear-gradient(#070707, color-mix(in srgb, var(--border-color) 10%, black)) padding-box, 
-                linear-gradient(var(--border-color), color-mix(in srgb, var(--border-color) 60%, black)) border-box;
+                linear-gradient(#070707, color-mix(in srgb, var(--item-color) 10%, black)) padding-box, 
+                linear-gradient(var(--item-color), color-mix(in srgb, var(--item-color) 60%, black)) border-box;
         }
 
         .grid-item:hover {
-            box-shadow: 0px 0px 25px 7px color-mix(in srgb, var(--border-color) 10%, transparent),
-            0px 0px 100px 50px color-mix(in srgb, var(--border-color) 5%, transparent);
+            box-shadow: 0px 0px 25px 7px color-mix(in srgb, var(--item-color) 10%, transparent),
+            0px 0px 100px 50px color-mix(in srgb, var(--item-color) 5%, transparent);
             transform: translateY(-10px);
+            --item-color: var(--resident-color);
         }
 
         .resident-name {
@@ -80,7 +91,7 @@
         .resident-role {
             font-size: 0.8em;
             margin-bottom: -5px;
-            color: var(--border-color);
+            color: var(--item-color);
         }
 
         .resident-icon {
@@ -189,21 +200,14 @@
     <div class="topbar-bg"></div>
     <img src="/logo-placeholder.png" class="topbar-logo">
     <div class="topbar-nav">
-        <a href="residents.html">Story</a>
-        <a href="residents.html">Gameplay</a>
-        <a href="residents.html">Residents</a>
-        <a href="locations.html">Locations</a>
+        <a href="residents_page.html">Story</a>
+        <a href="residents_page.html">Gameplay</a>
+        <a href="residents_page.html">Residents</a>
+        <a href="locations_page.html">Locations</a>
     </div>
 </div>
     <main>
-    <div class="flex-container">
-    
-        <div class="flex-card" style="border: 3px solid #a31f42;">
-        <h2>Ruins</h2>
-        <p>An ancient place.</p>
-        </div>
-    
-</div>
+    Alphys
     </main>
 
     <script>

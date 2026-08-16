@@ -1,0 +1,7 @@
+collections:
+    residents:
+      output: true
+      permalink: /residents/:path/
+    locations:
+      output: true
+      permalink: /locations/:path/
