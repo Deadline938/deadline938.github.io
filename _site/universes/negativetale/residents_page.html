@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
+  <title></title>
+  <style>
+        body {
+            font-family: 'Source Code Pro', sans-serif;
+            font-size: 0.9rem;
+            background-color: #070707;
+            color: rgb(212, 212, 212);
+            margin-top: 100px;
+            padding-bottom: 15px;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .flex-card {
+            background-color: #070707;
+            color: #FFF;
+            border-radius: 10px;
+            padding-left: 20px;
+            border: 3px solid red;
+            width: 85%;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.63), #070707),
+                    url('/location_placeholder.png');
+            background-repeat: no-repeat; 
+            background-size: auto; 
+            background-attachment: fixed; 
+            text-align: left;
+        }
+
+        .grid-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 85%;
+        }
+
+        @property --item-color {
+            syntax: '<color>';
+            inherits: true;
+            initial-value: #cccccc;
+        }
+
+        .grid-item {
+            --location-color: #cccccc;
+            --resident-color: #cccccc;
+            --item-color: var(--location-color);
+
+            flex: 1 1 400px;
+            display: flex;
+            align-items: flex-start;
+            background-color: #070707;
+            color: #FFF;
+            border-radius: 6px;
+            padding-right: 20px;
+            padding-bottom: 5px;
+            text-align: left;
+            border: 2px solid transparent;
+            box-sizing: border-box;
+            transition: box-shadow 0.25s ease-out, transform 0.2s ease-out, --item-color 0.25s ease-out;
+            cursor: pointer;
+            background: 
+                linear-gradient(#070707, color-mix(in srgb, var(--item-color) 10%, black)) padding-box, 
+                linear-gradient(var(--item-color), color-mix(in srgb, var(--item-color) 60%, black)) border-box;
+        }
+
+        .grid-item:hover {
+            box-shadow: 0px 0px 25px 7px color-mix(in srgb, var(--item-color) 10%, transparent),
+            0px 0px 100px 50px color-mix(in srgb, var(--item-color) 5%, transparent);
+            transform: translateY(-10px);
+            --item-color: var(--resident-color);
+        }
+
+        .resident-name {
+            font-size: 1.4em;
+            margin-bottom: -8px;
+        }
+
+        .resident-role {
+            font-size: 0.8em;
+            margin-bottom: -5px;
+            color: var(--item-color);
+        }
+
+        .resident-icon {
+            max-height: 100px;
+            display: block;
+            float: left; 
+            margin: 10px;
+        }
+
+        .topbar {
+            background: transparent;
+            height: 150px;
+            font-size: 1.2em;
+            position: fixed;
+            top: 0;
+            gap: 16px;
+            display: flex;
+            width: 100%;
+            padding-top: 10px;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .topbar-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#070707, #07070700);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .topbar.scrolled .topbar-bg {
+            opacity: 1;
+        }
+
+        .topbar-logo {
+            margin: 12px 0 10px 20px;
+            max-height: 22px;
+        }
+
+        .topbar-nav {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 2rem;
+        }
+
+        .topbar-nav a {
+            text-decoration: none;
+            color: rgb(175, 175, 175);
+            margin-top: 10px;
+            pointer-events: all;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .topbar-nav a:hover {
+            color: rgb(255, 255, 255);
+        }
+
+        #page-transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 1;
+            z-index: 2;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        #page-transition-overlay.fade-out {
+            opacity: 0;
+        }
+
+        @media screen and (max-width: 1001px) {
+            .topbar {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+
+            .topbar-logo {
+                margin: 0 0 -15px 0;
+            }
+
+            .topbar-nav {
+                position: relative;
+                flex: none;                  
+                width: 100%;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+        }
+  </style>
+</head>
+<body>
+    <div id="page-transition-overlay"></div>
+    <div class="topbar" id="topbar">
+    <div class="topbar-bg"></div>
+    <img src="/logo-placeholder.png" class="topbar-logo">
+    <div class="topbar-nav">
+        <a href="residents_page.html">Story</a>
+        <a href="residents_page.html">Gameplay</a>
+        <a href="residents_page.html">Residents</a>
+        <a href="locations_page.html">Locations</a>
+    </div>
+</div>
+    <main>
+    
+
+
+
+
+
+
+
+
+
+    <div class="location-sep" style="display: flex; margin: 40px 8% 0 8%; align-items: center;">
+        <div style="background-image: linear-gradient(to left, color-mix(in srgb, #274e3a 15%, #2d2d2d), transparent); flex: 1; margin-right: 10px; height: 2px;"> </div>
+        <h2 style="text-transform: uppercase; color: color-mix(in srgb, #274e3a 35%, white)">Overgrowth</h2>
+        <div style="background-image: linear-gradient(to right, color-mix(in srgb, #274e3a 15%, #2d2d2d), transparent); flex: 1; margin-left: 10px; height: 2px;"> </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid">
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #a31f42;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Valefar</b></p>
+                            <p class="resident-role">The Devil</p>
+                            <p class="resident-description">A demon from the depths of Hell, drawn into the Underground by the collective negativity of Monsterkind.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #3c4fd4;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Flowey</b></p>
+                            <p class="resident-role">The Sun</p>
+                            <p class="resident-description">An extroverted and emotional flower.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #4f4f4f;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Graphyt</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">A not-so-successful hunter of the Overgrowths.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #343434;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Whimsquito</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">A very angry mosquito.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #793192;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Moldstale</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">A mushroom far too stale to bloom.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #235f46;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Ambush</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">Hopes nobody notices it hiding in the bushes.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #4f8db7;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Jitterbug</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">As much as it hates dancing, it just can't stop.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #7ba6c3;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Olux</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">Wishes to be helpful.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #363533;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Napstablook</b></p>
+                            <p class="resident-role">The World</p>
+                            <p class="resident-description">Underground's most famous and only streamer.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #65874d;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Toriel</b></p>
+                            <p class="resident-role">The Hermit</p>
+                            <p class="resident-description">Locked herself away in the Ruins and wants nothing more than to be left alone.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+    </div>
+
+    <div class="location-sep" style="display: flex; margin: 40px 8% 0 8%; align-items: center;">
+        <div style="background-image: linear-gradient(to left, color-mix(in srgb, #807c74 15%, #2d2d2d), transparent); flex: 1; margin-right: 10px; height: 2px;"> </div>
+        <h2 style="text-transform: uppercase; color: color-mix(in srgb, #807c74 35%, white)">Springfield</h2>
+        <div style="background-image: linear-gradient(to right, color-mix(in srgb, #807c74 15%, #2d2d2d), transparent); flex: 1; margin-left: 10px; height: 2px;"> </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid">
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #453823;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Wetlociraptor</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">His melodramas go on for way too long.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #d39c19;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Lamblight</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">Wishes they weren't so bright.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Mascotto</b></p>
+                            <p class="resident-role">Mini-boss</p>
+                            <p class="resident-description">His sensors are fried, but his memory isn't.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Lesser Mascot</b></p>
+                            <p class="resident-role">Mini-boss</p>
+                            <p class="resident-description">Uses lots of springs in its traps.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Mascotamy & Mascotressa</b></p>
+                            <p class="resident-role">Mini-bosses</p>
+                            <p class="resident-description">Great, there's two of them.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Greater Mascot</b></p>
+                            <p class="resident-role">Mini-boss</p>
+                            <p class="resident-description">Really doesn't give you much of a choice.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #876e46;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Boxtrot</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">Very curious, yet very skittish.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #5b93c8;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Justin</b></p>
+                            <p class="resident-role">Justin</p>
+                            <p class="resident-description">Too cool for you.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #d0d0d0;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Shwan</b></p>
+                            <p class="resident-role">Mini-boss</p>
+                            <p class="resident-description">Despite his appearance, he's actually quite nice.</p>
+                        </div>
+                    </div>
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #834524;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Sans</b></p>
+                            <p class="resident-role">The Hanged Man</p>
+                            <p class="resident-description">A homeless card sharp and Snowdin's most self-destructive alcoholic.</p>
+                        </div>
+                    </div>
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #277d7d;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Papyrus</b></p>
+                            <p class="resident-role">The Chariot</p>
+                            <p class="resident-description">Ruthless, strategic Head of the Royal Guard, risen to power through force.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+        </div>
+    </div>
+
+    <div class="location-sep" style="display: flex; margin: 40px 8% 0 8%; align-items: center;">
+        <div style="background-image: linear-gradient(to left, color-mix(in srgb, #746d43 15%, #2d2d2d), transparent); flex: 1; margin-right: 10px; height: 2px;"> </div>
+        <h2 style="text-transform: uppercase; color: color-mix(in srgb, #746d43 35%, white)">Sourspring</h2>
+        <div style="background-image: linear-gradient(to right, color-mix(in srgb, #746d43 15%, #2d2d2d), transparent); flex: 1; margin-left: 10px; height: 2px;"> </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #4c5f6e;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Sulphorse</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">Ashamed of his own body.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #d2c960;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Griminer</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">Revels in the grime of the mines.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #9e0c64;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Loarren</b></p>
+                            <p class="resident-role">Mini-boss</p>
+                            <p class="resident-description">Loud, theatrical, and aggressively confident.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #3c4fd4;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Shy Dummy</b></p>
+                            <p class="resident-role">The Moon</p>
+                            <p class="resident-description">An introverted and shy mannequin.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #793192;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Moldstale</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">A mushroom far too stale to bloom.</p>
+                        </div>
+                    </div>
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #1b1b1b;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Sem</b></p>
+                            <p class="resident-role">Shopkeeper</p>
+                            <p class="resident-description">Worn and tired.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #793192;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Moldboulder</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">A mushroom far too big to move.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #2048bd;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Pitkid</b></p>
+                            <p class="resident-role">The Fool</p>
+                            <p class="resident-description">Hangs around the quarry edges causing trouble, secretly hoping someone will notice.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #bf6646;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Undyne</b></p>
+                            <p class="resident-role">The Tower</p>
+                            <p class="resident-description">Former head of the Royal Guard, crippled forever by Papyrus.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+    </div>
+
+    <div class="location-sep" style="display: flex; margin: 40px 8% 0 8%; align-items: center;">
+        <div style="background-image: linear-gradient(to left, color-mix(in srgb, #5fa8b8 15%, #2d2d2d), transparent); flex: 1; margin-right: 10px; height: 2px;"> </div>
+        <h2 style="text-transform: uppercase; color: color-mix(in srgb, #5fa8b8 35%, white)">Ice-E Peaks</h2>
+        <div style="background-image: linear-gradient(to right, color-mix(in srgb, #5fa8b8 15%, #2d2d2d), transparent); flex: 1; margin-left: 10px; height: 2px;"> </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid">
+            
+                
+                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #2a9bce;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Pipspeak</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">Wishes it were taller than its siblings.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #427660;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Tankdere</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">Sweet and nice until you try to leave.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #9ed7e4;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Cryonyte</b></p>
+                            <p class="resident-role">Enemy</p>
+                            <p class="resident-description">Always stays cold.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #65874d;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Muffet</b></p>
+                            <p class="resident-role">The High Priestess</p>
+                            <p class="resident-description">A graveyard worker who prefers to speak only when necessary.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #2d41a1;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Alphys</b></p>
+                            <p class="resident-role">The Magician</p>
+                            <p class="resident-description">A mad engineer with zero regrets, absolute confidence, and more metal than flesh.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #5097b8;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Ice-E</b></p>
+                            <p class="resident-role">The Emperor</p>
+                            <p class="resident-description">Leader of the Underground’s biggest megacorporation.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+    </div>
+
+    <div class="location-sep" style="display: flex; margin: 40px 8% 0 8%; align-items: center;">
+        <div style="background-image: linear-gradient(to left, color-mix(in srgb, #50c5a6 15%, #2d2d2d), transparent); flex: 1; margin-right: 10px; height: 2px;"> </div>
+        <h2 style="text-transform: uppercase; color: color-mix(in srgb, #50c5a6 35%, white)">Ice-E Resort</h2>
+        <div style="background-image: linear-gradient(to right, color-mix(in srgb, #50c5a6 15%, #2d2d2d), transparent); flex: 1; margin-left: 10px; height: 2px;"> </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Mascotto</b></p>
+                            <p class="resident-role">Mini-boss</p>
+                            <p class="resident-description">His sensors are fried, but his memory isn't.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Lesser Mascot</b></p>
+                            <p class="resident-role">Mini-boss</p>
+                            <p class="resident-description">Uses lots of springs in its traps.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Mascotamy & Mascotressa</b></p>
+                            <p class="resident-role">Mini-bosses</p>
+                            <p class="resident-description">Great, there's two of them.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Greater Mascot</b></p>
+                            <p class="resident-role">Mini-boss</p>
+                            <p class="resident-description">Really doesn't give you much of a choice.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #56d43c;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Mettaton</b></p>
+                            <p class="resident-role">The Star</p>
+                            <p class="resident-description">A ghost forcefully encased in a metal body, made to perform for an insatiable audience.</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+    </div>
+
+    <div class="location-sep" style="display: flex; margin: 40px 8% 0 8%; align-items: center;">
+        <div style="background-image: linear-gradient(to left, color-mix(in srgb, #e0cfdf 15%, #2d2d2d), transparent); flex: 1; margin-right: 10px; height: 2px;"> </div>
+        <h2 style="text-transform: uppercase; color: color-mix(in srgb, #e0cfdf 35%, white)">The Gallery</h2>
+        <div style="background-image: linear-gradient(to right, color-mix(in srgb, #e0cfdf 15%, #2d2d2d), transparent); flex: 1; margin-left: 10px; height: 2px;"> </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid">
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>????????</b></p>
+                            <p class="resident-role"></p>
+                            <p class="resident-description">???????????</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>????????</b></p>
+                            <p class="resident-role"></p>
+                            <p class="resident-description">???????????</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>????????</b></p>
+                            <p class="resident-role"></p>
+                            <p class="resident-description">???????????</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>????????</b></p>
+                            <p class="resident-role"></p>
+                            <p class="resident-description">???????????</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>????????</b></p>
+                            <p class="resident-role"></p>
+                            <p class="resident-description">???????????</p>
+                        </div>
+                    </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </div>
+    </div>
+
+    <div class="location-sep" style="display: flex; margin: 40px 8% 0 8%; align-items: center;">
+        <div style="background-image: linear-gradient(to left, color-mix(in srgb, #6a6a6a 15%, #2d2d2d), transparent); flex: 1; margin-right: 10px; height: 2px;"> </div>
+        <h2 style="text-transform: uppercase; color: color-mix(in srgb, #6a6a6a 35%, white)">New Home</h2>
+        <div style="background-image: linear-gradient(to right, color-mix(in srgb, #6a6a6a 15%, #2d2d2d), transparent); flex: 1; margin-left: 10px; height: 2px;"> </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <div class="grid-item" style="--location-color: #6a6a6a; --resident-color: #363533;">
+                        <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
+                        <div class="resident-text">
+                            <p class="resident-name"><b>Asgore</b></p>
+                            <p class="resident-role">The Hierophant</p>
+                            <p class="resident-description">The universally disliked president of the Underground.</p>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const topbar = document.getElementById('topbar');
+
+            function onScroll() {
+            if (window.scrollY > 1) { 
+                topbar.classList.add('scrolled');
+            } else {
+                topbar.classList.remove('scrolled');
+            }
+            }
+
+            window.addEventListener('scroll', onScroll);
+            onScroll();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const overlay = document.getElementById('page-transition-overlay');
+
+            window.requestAnimationFrame(() => {
+                overlay.classList.add('fade-out');
+            });
+
+            document.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    if (link.host === window.location.host) {
+                    e.preventDefault();
+                    const href = link.href;
+
+                    overlay.classList.remove('fade-out');
+
+                    setTimeout(function () {
+                        window.location.href = href;
+                    }, 200);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

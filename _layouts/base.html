@@ -40,16 +40,17 @@
         }
         
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
             width: 85%;
         }
 
         @property --item-color {
-        syntax: '<color>';
-        inherits: true;
-        initial-value: #cccccc;
+            syntax: '<color>';
+            inherits: true;
+            initial-value: #cccccc;
         }
 
         .grid-item {
@@ -57,6 +58,7 @@
             --resident-color: #cccccc;
             --item-color: var(--location-color);
 
+            flex: 1 1 400px;
             display: flex;
             align-items: flex-start;
             background-color: #070707;
@@ -64,11 +66,9 @@
             border-radius: 6px;
             padding-right: 20px;
             padding-bottom: 5px;
-            height: 100%;
             text-align: left;
             border: 2px solid transparent;
             box-sizing: border-box;
-            position: relative;
             transition: box-shadow 0.25s ease-out, transform 0.2s ease-out, --item-color 0.25s ease-out;
             cursor: pointer;
             background: 

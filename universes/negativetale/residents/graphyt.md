@@ -1,10 +1,10 @@
 ---
 layout: resident
 title: Graphyt
-description: A not-so-successfull hunter of the Overgrowths.
-color: "#343434"
+description: A not-so-successful hunter of the Overgrowths.
+color: "#4f4f4f"
 image: resident_placeholder.png
 role: Enemy
-order: 2
+order: 3
 location: overgrowth
 ---

@@ -5,6 +5,6 @@ description: Locked herself away in the Ruins and wants nothing more than to be 
 color: "#65874d"
 image: resident_placeholder.png
 role: The Hermit
-order: 9
+order: 10
 location: overgrowth
 ---
