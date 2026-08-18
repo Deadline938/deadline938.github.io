@@ -7,5 +7,4 @@ image: resident_placeholder.png
 role: Enemy
 order: 5
 location: overgrowth
-extra_locations: [sourspring]
 ---
