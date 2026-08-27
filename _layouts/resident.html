@@ -1,4 +1,101 @@
 ---
 layout: base
 ---
-{{ page.title }}
+
+<head>
+    <link rel="stylesheet" href="{{ '/css/resident.css' | relative_url }}">
+</head>
+
+<div class="content-holder">
+    <div class="text-content">
+        <h2 style="--item-color: {{ page.color }}">{{ page.title }}</h2>
+        <p style="font-size: 1rem; color: {{ page.color }}; margin-top: -5px;">{{ page.role }}</p>
+        <div class="separator" style="--item-color: {{ page.color }};"></div>
+        <div style="--item-color: {{ page.color }};">
+            <p>{{ page.extended }}</p>
+        </div>
+
+        {% if page.personality %}
+            <div style="--item-color: {{ page.color }};">
+                <h2 style="--item-color: {{ page.color }}">Personality</h2>
+                <div class="separator" style="--item-color: {{ page.color }};"></div>
+                <p>{{ page.personality }}</p>
+            </div> 
+        {% endif %}
+
+        {% if page.appearance %}
+            <div style="--item-color: {{ page.color }};">
+                <h2 style="--item-color: {{ page.color }}">Appearance</h2>
+                <div class="separator" style="--item-color: {{ page.color }};"></div>
+                <p>{{ page.appearance }}</p>
+            </div>
+        {% endif %}
+
+        {% if page.history %}
+            <div style="--item-color: {{ page.color }};">
+                <h2 style="--item-color: {{ page.color }}">History</h2>
+                <div class="separator" style="--item-color: {{ page.color }};"></div>
+                <p>{{ page.history }}</p>
+            </div>
+        {% endif %}
+
+        {% if page.relationships %}
+            <div style="--item-color: {{ page.color }};">
+                <h2 style="--item-color: {{ page.color }}">Relationships</h2>
+                <div class="separator" style="--item-color: {{ page.color }};"></div>
+                {% for relationship in page.relationships %}
+                    <h3>{{ relationship.character }}</h3>
+                    <p>{{ relationship.relation }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if page.abilities %}
+            <div style="--item-color: {{ page.color }};">
+                <h2 style="--item-color: {{ page.color }}">Abilities</h2>
+                <div class="separator" style="--item-color: {{ page.color }};"></div>
+                {% for ability in page.abilities %}
+                    <div class="resident-element" style="--item-color: {{ page.color }};">
+                        <h3>{{ ability.name }}</h3>
+                        <p>{{ ability.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="infobox">
+        <div class="resident-element" style="--item-color: {{ page.color }}">
+            <div class="image-box">
+                <div class="stat-holder">
+                    <p class="stat-text">HP: {{ page.hp }}</p>
+                    <p class="stat-text">AT: {{ page.at }}</p>
+                    <p class="stat-text">LV: {{ page.lv }}</p>
+                    <p class="stat-text">MG: {{ page.mg }}</p>
+                </div>
+                <img src="{{ page.image | relative_url }}" alt="Placeholder" style="max-height: 16rem;">
+            </div>
+            {% if page.quote %}
+                <i><div class="quote">"{{ page.quote }}"</div></i>
+            {% endif %}
+            <table>
+                <tr>
+                    <th>Rarity</th>
+                    <td>{{ page.rarity }}</td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>{{ page.type }}</td>
+                </tr>
+                <tr>
+                    <th>Pronouns</th>
+                    <td>{{ page.pronouns }}</td>
+                </tr>
+                <tr>
+                    <th>Aliases</th>
+                    <td>{{ page.aliases }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

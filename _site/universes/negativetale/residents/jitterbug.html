@@ -5,6 +5,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
   <title>Jitterbug</title>
   <style>
+        html {
+            scrollbar-gutter: stable both-edges;
+        }
+
         body {
             font-family: 'Source Code Pro', sans-serif;
             font-size: 0.9rem;
@@ -58,6 +62,7 @@
             --resident-color: #cccccc;
             --item-color: var(--location-color);
 
+            text-decoration: none;
             flex: 1 1 400px;
             display: flex;
             align-items: flex-start;
@@ -166,7 +171,7 @@
             opacity: 1;
             z-index: 2;
             pointer-events: none;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.35s ease;
         }
 
         #page-transition-overlay.fade-out {
@@ -196,18 +201,77 @@
 </head>
 <body>
     <div id="page-transition-overlay"></div>
-    <div class="topbar" id="topbar">
+    
+
+
+<div class="topbar" id="topbar">
     <div class="topbar-bg"></div>
     <img src="/logo-placeholder.png" class="topbar-logo">
     <div class="topbar-nav">
         <a href="residents_page.html">Story</a>
         <a href="residents_page.html">Gameplay</a>
-        <a href="residents_page.html">Residents</a>
+        <a href="/universes/negativetale/residents_page.html">Residents</a>
         <a href="locations_page.html">Locations</a>
     </div>
 </div>
     <main>
-    Jitterbug
+    <head>
+    <link rel="stylesheet" href="/css/resident.css">
+</head>
+
+<div class="content-holder">
+    <div class="text-content">
+        <h2 style="--item-color: #4f8db7">Jitterbug</h2>
+        <p style="font-size: 1rem; color: #4f8db7; margin-top: -5px;">Enemy</p>
+        <div class="separator" style="--item-color: #4f8db7;"></div>
+        <div style="--item-color: #4f8db7;">
+            <p></p>
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <div class="infobox">
+        <div class="resident-element" style="--item-color: #4f8db7">
+            <div class="image-box">
+                <div class="stat-holder">
+                    <p class="stat-text">HP: </p>
+                    <p class="stat-text">AT: </p>
+                    <p class="stat-text">LV: </p>
+                    <p class="stat-text">MG: </p>
+                </div>
+                <img src="/resident_placeholder.png" alt="Placeholder" style="max-height: 16rem;">
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Rarity</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Pronouns</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Aliases</th>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
     </main>
 
     <script>
@@ -231,21 +295,6 @@
 
             window.requestAnimationFrame(() => {
                 overlay.classList.add('fade-out');
-            });
-
-            document.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function (e) {
-                    if (link.host === window.location.host) {
-                    e.preventDefault();
-                    const href = link.href;
-
-                    overlay.classList.remove('fade-out');
-
-                    setTimeout(function () {
-                        window.location.href = href;
-                    }, 200);
-                    }
-                });
             });
         });
     </script>

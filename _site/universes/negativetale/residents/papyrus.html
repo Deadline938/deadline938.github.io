@@ -5,6 +5,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
   <title>Papyrus</title>
   <style>
+        html {
+            scrollbar-gutter: stable both-edges;
+        }
+
         body {
             font-family: 'Source Code Pro', sans-serif;
             font-size: 0.9rem;
@@ -58,6 +62,7 @@
             --resident-color: #cccccc;
             --item-color: var(--location-color);
 
+            text-decoration: none;
             flex: 1 1 400px;
             display: flex;
             align-items: flex-start;
@@ -166,7 +171,7 @@
             opacity: 1;
             z-index: 2;
             pointer-events: none;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.35s ease;
         }
 
         #page-transition-overlay.fade-out {
@@ -196,18 +201,128 @@
 </head>
 <body>
     <div id="page-transition-overlay"></div>
-    <div class="topbar" id="topbar">
+    
+
+
+<div class="topbar" id="topbar">
     <div class="topbar-bg"></div>
     <img src="/logo-placeholder.png" class="topbar-logo">
     <div class="topbar-nav">
         <a href="residents_page.html">Story</a>
         <a href="residents_page.html">Gameplay</a>
-        <a href="residents_page.html">Residents</a>
+        <a href="/universes/negativetale/residents_page.html">Residents</a>
         <a href="locations_page.html">Locations</a>
     </div>
 </div>
     <main>
-    Papyrus
+    <head>
+    <link rel="stylesheet" href="/css/resident.css">
+</head>
+
+<div class="content-holder">
+    <div class="text-content">
+        <h2 style="--item-color: #277d7d">Papyrus</h2>
+        <p style="font-size: 1rem; color: #277d7d; margin-top: -5px;">The Chariot</p>
+        <div class="separator" style="--item-color: #277d7d;"></div>
+        <div style="--item-color: #277d7d;">
+            <p>Papyrus is the ruthless and strategic Captain of the Royal Guard. He seized power by force, crippling the previous captain, Undyne, and has since run the Guard as his personal army. He is widely feared, deeply ambitious, and tolerated only because his competence keeps the Underground from collapsing completely.</p>
+        </div>
+
+        
+            <div style="--item-color: #277d7d;">
+                <h2 style="--item-color: #277d7d">Personality</h2>
+                <div class="separator" style="--item-color: #277d7d;"></div>
+                <p>Papyrus is cold, calculating, and egotistical. He almost never shouts, although his voice is naturally loud. His anger builds slowly, visible in clipped orders and tightening composure, until it finally breaks at a critical moment.</p>
+            </div> 
+        
+
+        
+            <div style="--item-color: #277d7d;">
+                <h2 style="--item-color: #277d7d">Appearance</h2>
+                <div class="separator" style="--item-color: #277d7d;"></div>
+                <p>Papyrus is a tall, angular skeleton with a subtle scar running from one eye socket downward. He wears a dark sharply tailored officer's uniform, complete with polished boots and a peaked cap. A blue tie is knotted tightly at his throat.</p>
+            </div>
+        
+
+        
+            <div style="--item-color: #277d7d;">
+                <h2 style="--item-color: #277d7d">History</h2>
+                <div class="separator" style="--item-color: #277d7d;"></div>
+                <p><p>Papyrus was born in Springfield. Unlike his older brother Sans, whom he despises to this day, Papyrus rejected idleness early and dedicated himself to discipline and advancement.</p><p>After years of maneuvering, he challenged Undyne for control of the Royal Guard. The confrontation ended with Undyne crippled and Papyrus installed as Captain. Sans, who had refused to support the coup, was evicted from their home shortly afterward.</p><p>Since then, Papyrus has rebuilt the Guard into a loyal, professional force. He uses Asgore as a figurehead, issuing "recommendations" that are never refused. While many hate him, the Underground's soul economy has "improved" under his watch.</p></p>
+            </div>
+        
+
+        
+            <div style="--item-color: #277d7d;">
+                <h2 style="--item-color: #277d7d">Relationships</h2>
+                <div class="separator" style="--item-color: #277d7d;"></div>
+                
+                    <h3>Sans</h3>
+                    <p>Papyrus and Sans are brothers, but little remains between them except mutual resentment. Papyrus sees Sans as a failure and an embarrassment. They avoid each other unless forced.</p>
+                
+                    <h3>Undyne</h3>
+                    <p>Papyrus defeated Undyne to become Captain of the Royal Guard. He left her alive, but crippled.</p>
+                
+                    <h3>Asgore</h3>
+                    <p>Papyrus treats Asgore as a puppet, though he is aware that a revolution is unlikely to succeed due to the Underground's social state and Asgore's lingering strength.</p>
+                
+            </div>
+        
+
+        
+            <div style="--item-color: #277d7d;">
+                <h2 style="--item-color: #277d7d">Abilities</h2>
+                <div class="separator" style="--item-color: #277d7d;"></div>
+                
+                    <div class="resident-element" style="--item-color: #277d7d;">
+                        <h3>Natural Charisma</h3>
+                        <p>Papyrus can direct Royal Guards and many residents with total authority, instilling both fear and a desperate desire to earn his approval.</p>
+                    </div>
+                
+                    <div class="resident-element" style="--item-color: #277d7d;">
+                        <h3>Putrid Persistence</h3>
+                        <p>When Papyrus is pushed to his absolute limit, his soul refuses to yield and he transforms into Papyrus the Persistent. He returns at the edge of death with his AT and HP permanently doubled, and becomes capable of attacking Soul Cards physically.</p>
+                    </div>
+                
+            </div>
+        
+    </div>
+
+    <div class="infobox">
+        <div class="resident-element" style="--item-color: #277d7d">
+            <div class="image-box">
+                <div class="stat-holder">
+                    <p class="stat-text">HP: 7</p>
+                    <p class="stat-text">AT: 8</p>
+                    <p class="stat-text">LV: 4</p>
+                    <p class="stat-text">MG: 5</p>
+                </div>
+                <img src="/resident_placeholder.png" alt="Placeholder" style="max-height: 16rem;">
+            </div>
+            
+                <i><div class="quote">"I ORDER YOU TO SURRENDER."</div></i>
+            
+            <table>
+                <tr>
+                    <th>Rarity</th>
+                    <td>Extinct</td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>Skeleton</td>
+                </tr>
+                <tr>
+                    <th>Pronouns</th>
+                    <td>He / Him</td>
+                </tr>
+                <tr>
+                    <th>Aliases</th>
+                    <td>Bro (Sans)<br>Captain</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
     </main>
 
     <script>
@@ -231,21 +346,6 @@
 
             window.requestAnimationFrame(() => {
                 overlay.classList.add('fade-out');
-            });
-
-            document.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function (e) {
-                    if (link.host === window.location.host) {
-                    e.preventDefault();
-                    const href = link.href;
-
-                    overlay.classList.remove('fade-out');
-
-                    setTimeout(function () {
-                        window.location.href = href;
-                    }, 200);
-                    }
-                });
             });
         });
     </script>

@@ -1,10 +1,13 @@
+{% assign path_parts = page.path | split: "/" %}
+{% assign universe = path_parts[1] %}
+
 <div class="topbar" id="topbar">
     <div class="topbar-bg"></div>
     <img src="/logo-placeholder.png" class="topbar-logo">
     <div class="topbar-nav">
         <a href="residents_page.html">Story</a>
         <a href="residents_page.html">Gameplay</a>
-        <a href="residents_page.html">Residents</a>
+        <a href="{{ '/universes/' | append: universe | append: '/residents_page.html' | relative_url }}">Residents</a>
         <a href="locations_page.html">Locations</a>
     </div>
 </div>

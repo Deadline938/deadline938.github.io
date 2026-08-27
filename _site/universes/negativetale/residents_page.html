@@ -5,6 +5,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
   <title></title>
   <style>
+        html {
+            scrollbar-gutter: stable both-edges;
+        }
+
         body {
             font-family: 'Source Code Pro', sans-serif;
             font-size: 0.9rem;
@@ -58,6 +62,7 @@
             --resident-color: #cccccc;
             --item-color: var(--location-color);
 
+            text-decoration: none;
             flex: 1 1 400px;
             display: flex;
             align-items: flex-start;
@@ -166,7 +171,7 @@
             opacity: 1;
             z-index: 2;
             pointer-events: none;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.35s ease;
         }
 
         #page-transition-overlay.fade-out {
@@ -196,13 +201,16 @@
 </head>
 <body>
     <div id="page-transition-overlay"></div>
-    <div class="topbar" id="topbar">
+    
+
+
+<div class="topbar" id="topbar">
     <div class="topbar-bg"></div>
     <img src="/logo-placeholder.png" class="topbar-logo">
     <div class="topbar-nav">
         <a href="residents_page.html">Story</a>
         <a href="residents_page.html">Gameplay</a>
-        <a href="residents_page.html">Residents</a>
+        <a href="/universes/negativetale/residents_page.html">Residents</a>
         <a href="locations_page.html">Locations</a>
     </div>
 </div>
@@ -231,14 +239,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #a31f42;">
+                    <a href="/universes/negativetale/residents/valefar.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #a31f42;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Valefar</b></p>
                             <p class="resident-role">The Devil</p>
                             <p class="resident-description">A demon from the depths of Hell, drawn into the Underground by the collective negativity of Monsterkind.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -252,14 +260,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #3c4fd4;">
+                    <a href="/universes/negativetale/residents/flowey.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #3c4fd4;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Flowey</b></p>
                             <p class="resident-role">The Sun</p>
                             <p class="resident-description">An extroverted and emotional flower.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -267,14 +275,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #4f4f4f;">
+                    <a href="/universes/negativetale/residents/graphyt.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #4f4f4f;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Graphyt</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">A not-so-successful hunter of the Overgrowths.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -284,14 +292,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #343434;">
+                    <a href="/universes/negativetale/residents/whimsquito.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #343434;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Whimsquito</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">A very angry mosquito.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -303,14 +311,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #793192;">
+                    <a href="/universes/negativetale/residents/moldstale.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #793192;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Moldstale</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">A mushroom far too stale to bloom.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -322,14 +330,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #235f46;">
+                    <a href="/universes/negativetale/residents/ambush.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #235f46;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Ambush</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">Hopes nobody notices it hiding in the bushes.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -337,14 +345,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #4f8db7;">
+                    <a href="/universes/negativetale/residents/jitterbug.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #4f8db7;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Jitterbug</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">As much as it hates dancing, it just can't stop.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -352,14 +360,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #7ba6c3;">
+                    <a href="/universes/negativetale/residents/olux.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #7ba6c3;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Olux</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">Wishes to be helpful.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -367,27 +375,27 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #363533;">
+                    <a href="/universes/negativetale/residents/napstablook.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #363533;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Napstablook</b></p>
                             <p class="resident-role">The World</p>
                             <p class="resident-description">Underground's most famous and only streamer.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
             
                 
-                    <div class="grid-item" style="--location-color: #274e3a; --resident-color: #65874d;">
+                    <a href="/universes/negativetale/residents/toriel.html" class="grid-item" style="--location-color: #274e3a; --resident-color: #65874d;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Toriel</b></p>
                             <p class="resident-role">The Hermit</p>
                             <p class="resident-description">Locked herself away in the Ruins and wants nothing more than to be left alone.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -419,14 +427,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #453823;">
+                    <a href="/universes/negativetale/residents/wetlociraptor.html" class="grid-item" style="--location-color: #807c74; --resident-color: #453823;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Wetlociraptor</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">His melodramas go on for way too long.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -440,14 +448,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #d39c19;">
+                    <a href="/universes/negativetale/residents/lamblight.html" class="grid-item" style="--location-color: #807c74; --resident-color: #d39c19;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Lamblight</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">Wishes they weren't so bright.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -459,14 +467,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
+                    <a href="/universes/negativetale/residents/mascotto.html" class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Mascotto</b></p>
                             <p class="resident-role">Mini-boss</p>
                             <p class="resident-description">His sensors are fried, but his memory isn't.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -484,27 +492,27 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
+                    <a href="/universes/negativetale/residents/lessermascot.html" class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Lesser Mascot</b></p>
                             <p class="resident-role">Mini-boss</p>
                             <p class="resident-description">Uses lots of springs in its traps.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
+                    <a href="/universes/negativetale/residents/mnm.html" class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Mascotamy & Mascotressa</b></p>
                             <p class="resident-role">Mini-bosses</p>
                             <p class="resident-description">Great, there's two of them.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -512,14 +520,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
+                    <a href="/universes/negativetale/residents/greatermascot.html" class="grid-item" style="--location-color: #807c74; --resident-color: #4681a6;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Greater Mascot</b></p>
                             <p class="resident-role">Mini-boss</p>
                             <p class="resident-description">Really doesn't give you much of a choice.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -533,27 +541,27 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #876e46;">
+                    <a href="/universes/negativetale/residents/boxtrot.html" class="grid-item" style="--location-color: #807c74; --resident-color: #876e46;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Boxtrot</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">Very curious, yet very skittish.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #5b93c8;">
+                    <a href="/universes/negativetale/residents/justin.html" class="grid-item" style="--location-color: #807c74; --resident-color: #5b93c8;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Justin</b></p>
                             <p class="resident-role">Justin</p>
                             <p class="resident-description">Too cool for you.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -561,36 +569,36 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #d0d0d0;">
+                    <a href="/universes/negativetale/residents/shwan.html" class="grid-item" style="--location-color: #807c74; --resident-color: #d0d0d0;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Shwan</b></p>
                             <p class="resident-role">Mini-boss</p>
                             <p class="resident-description">Despite his appearance, he's actually quite nice.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #834524;">
+                    <a href="/universes/negativetale/residents/sans.html" class="grid-item" style="--location-color: #807c74; --resident-color: #834524;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Sans</b></p>
                             <p class="resident-role">The Hanged Man</p>
                             <p class="resident-description">A homeless card sharp and Springfield's most self-destructive alcoholic.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
-                    <div class="grid-item" style="--location-color: #807c74; --resident-color: #277d7d;">
+                    <a href="/universes/negativetale/residents/papyrus.html" class="grid-item" style="--location-color: #807c74; --resident-color: #277d7d;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Papyrus</b></p>
                             <p class="resident-role">The Chariot</p>
                             <p class="resident-description">Ruthless, strategic Head of the Royal Guard, risen to power through force.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -616,14 +624,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #4c5f6e;">
+                    <a href="/universes/negativetale/residents/sulphorse.html" class="grid-item" style="--location-color: #746d43; --resident-color: #4c5f6e;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Sulphorse</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">Ashamed of his own body.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -631,14 +639,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #d2c960;">
+                    <a href="/universes/negativetale/residents/griminer.html" class="grid-item" style="--location-color: #746d43; --resident-color: #d2c960;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Griminer</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">Revels in the grime of the mines.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -650,14 +658,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #9e0c64;">
+                    <a href="/universes/negativetale/residents/loarren.html" class="grid-item" style="--location-color: #746d43; --resident-color: #9e0c64;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Loarren</b></p>
                             <p class="resident-role">Mini-boss</p>
                             <p class="resident-description">Loud, theatrical, and aggressively confident.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -671,14 +679,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #3c4fd4;">
+                    <a href="/universes/negativetale/residents/dummy.html" class="grid-item" style="--location-color: #746d43; --resident-color: #3c4fd4;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Shy Dummy</b></p>
                             <p class="resident-role">The Moon</p>
                             <p class="resident-description">An introverted and shy mannequin.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -686,27 +694,27 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #1b1b1b;">
+                    <a href="/universes/negativetale/residents/sem.html" class="grid-item" style="--location-color: #746d43; --resident-color: #1b1b1b;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Sem</b></p>
                             <p class="resident-role">Shopkeeper</p>
                             <p class="resident-description">Worn and tired.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
             
                 
-                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #793192;">
+                    <a href="/universes/negativetale/residents/moldboulder.html" class="grid-item" style="--location-color: #746d43; --resident-color: #793192;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Moldboulder</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">A mushroom far too big to move.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -720,14 +728,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #2048bd;">
+                    <a href="/universes/negativetale/residents/pitkid.html" class="grid-item" style="--location-color: #746d43; --resident-color: #2048bd;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Pitkid</b></p>
                             <p class="resident-role">The Fool</p>
                             <p class="resident-description">Hangs around the quarry edges causing trouble, secretly hoping someone will notice.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -735,14 +743,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #746d43; --resident-color: #bf6646;">
+                    <a href="/universes/negativetale/residents/undyne.html" class="grid-item" style="--location-color: #746d43; --resident-color: #bf6646;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Undyne</b></p>
                             <p class="resident-role">The Tower</p>
                             <p class="resident-description">Former head of the Royal Guard, crippled forever by Papyrus.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -776,14 +784,14 @@
         <div class="grid">
             
                 
-                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #2a9bce;">
+                    <a href="/universes/negativetale/residents/pipspeak.html" class="grid-item" style="--location-color: #5fa8b8; --resident-color: #2a9bce;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Pipspeak</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">Wishes it were taller than its siblings.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -797,14 +805,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #427660;">
+                    <a href="/universes/negativetale/residents/tankdere.html" class="grid-item" style="--location-color: #5fa8b8; --resident-color: #427660;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Tankdere</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">Sweet and nice until you try to leave.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -820,14 +828,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #9ed7e4;">
+                    <a href="/universes/negativetale/residents/cryonyte.html" class="grid-item" style="--location-color: #5fa8b8; --resident-color: #9ed7e4;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Cryonyte</b></p>
                             <p class="resident-role">Enemy</p>
                             <p class="resident-description">Always stays cold.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -837,14 +845,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #65874d;">
+                    <a href="/universes/negativetale/residents/muffet.html" class="grid-item" style="--location-color: #5fa8b8; --resident-color: #65874d;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Muffet</b></p>
                             <p class="resident-role">The High Priestess</p>
                             <p class="resident-description">A graveyard worker who prefers to speak only when necessary.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -864,14 +872,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #2d41a1;">
+                    <a href="/universes/negativetale/residents/alphys.html" class="grid-item" style="--location-color: #5fa8b8; --resident-color: #2d41a1;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Alphys</b></p>
                             <p class="resident-role">The Magician</p>
                             <p class="resident-description">A mad engineer with zero regrets, absolute confidence, and more metal than flesh.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -881,14 +889,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #5fa8b8; --resident-color: #5097b8;">
+                    <a href="/universes/negativetale/residents/ice-e.html" class="grid-item" style="--location-color: #5fa8b8; --resident-color: #5097b8;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Ice-E</b></p>
                             <p class="resident-role">The Emperor</p>
                             <p class="resident-description">Leader of the Underground’s biggest megacorporation.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -954,14 +962,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
+                    <a href="/universes/negativetale/residents/mascotto.html" class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Mascotto</b></p>
                             <p class="resident-role">Mini-boss</p>
                             <p class="resident-description">His sensors are fried, but his memory isn't.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -979,27 +987,27 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
+                    <a href="/universes/negativetale/residents/lessermascot.html" class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Lesser Mascot</b></p>
                             <p class="resident-role">Mini-boss</p>
                             <p class="resident-description">Uses lots of springs in its traps.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
             
                 
-                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
+                    <a href="/universes/negativetale/residents/mnm.html" class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Mascotamy & Mascotressa</b></p>
                             <p class="resident-role">Mini-bosses</p>
                             <p class="resident-description">Great, there's two of them.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -1007,14 +1015,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
+                    <a href="/universes/negativetale/residents/greatermascot.html" class="grid-item" style="--location-color: #50c5a6; --resident-color: #4681a6;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Greater Mascot</b></p>
                             <p class="resident-role">Mini-boss</p>
                             <p class="resident-description">Really doesn't give you much of a choice.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -1036,14 +1044,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #50c5a6; --resident-color: #56d43c;">
+                    <a href="/universes/negativetale/residents/mettaton.html" class="grid-item" style="--location-color: #50c5a6; --resident-color: #56d43c;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Mettaton</b></p>
                             <p class="resident-role">The Star</p>
                             <p class="resident-description">A ghost forcefully encased in a metal body, made to perform for an insatiable audience.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -1069,14 +1077,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                    <a href="/universes/negativetale/residents/amalgamate1.html" class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>????????</b></p>
                             <p class="resident-role"></p>
                             <p class="resident-description">???????????</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -1086,14 +1094,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                    <a href="/universes/negativetale/residents/amalgamate2.html" class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>????????</b></p>
                             <p class="resident-role"></p>
                             <p class="resident-description">???????????</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -1105,14 +1113,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                    <a href="/universes/negativetale/residents/amalgamate3.html" class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>????????</b></p>
                             <p class="resident-role"></p>
                             <p class="resident-description">???????????</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -1126,14 +1134,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                    <a href="/universes/negativetale/residents/amalgamate4.html" class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>????????</b></p>
                             <p class="resident-role"></p>
                             <p class="resident-description">???????????</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -1141,14 +1149,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
+                    <a href="/universes/negativetale/residents/amalgamate5.html" class="grid-item" style="--location-color: #e0cfdf; --resident-color: #101010;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>????????</b></p>
                             <p class="resident-role"></p>
                             <p class="resident-description">???????????</p>
                         </div>
-                    </div>
+                    </a>
                 
             
                 
@@ -1290,14 +1298,14 @@
                 
             
                 
-                    <div class="grid-item" style="--location-color: #6a6a6a; --resident-color: #363533;">
+                    <a href="/universes/negativetale/residents/asgore.html" class="grid-item" style="--location-color: #6a6a6a; --resident-color: #363533;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>Asgore</b></p>
                             <p class="resident-role">The Hierophant</p>
                             <p class="resident-description">The universally disliked president of the Underground.</p>
                         </div>
-                    </div>
+                    </a>
                 
             
         </div>
@@ -1326,21 +1334,6 @@
 
             window.requestAnimationFrame(() => {
                 overlay.classList.add('fade-out');
-            });
-
-            document.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function (e) {
-                    if (link.host === window.location.host) {
-                    e.preventDefault();
-                    const href = link.href;
-
-                    overlay.classList.remove('fade-out');
-
-                    setTimeout(function () {
-                        window.location.href = href;
-                    }, 200);
-                    }
-                });
             });
         });
     </script>

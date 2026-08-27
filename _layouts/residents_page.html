@@ -22,14 +22,14 @@ layout: base
         <div class="grid">
             {% for resident in all_residents %}
                 {% if resident.location == location.codename or resident.extra_locations contains location.codename %}
-                    <div class="grid-item" style="--location-color: {{ location.color }}; --resident-color: {{ resident.color }};">
+                    <a href="{{ resident.url | relative_url }}" class="grid-item" style="--location-color: {{ location.color }}; --resident-color: {{ resident.color }};">
                         <img src="{{ resident.image | relative_url }}" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
                             <p class="resident-name"><b>{{ resident.title }}</b></p>
                             <p class="resident-role">{{ resident.role }}</p>
                             <p class="resident-description">{{ resident.description }}</p>
                         </div>
-                    </div>
+                    </a>
                 {% endif %}
             {% endfor %}
         </div>
