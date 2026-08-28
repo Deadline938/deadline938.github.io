@@ -25,13 +25,16 @@ history: <p>Sans was born in Springfield and lived there with his younger brothe
 
 relationships: 
     - character: Papyrus
-      relation: Sans and Papyrus are brothers, but they prefer not to see each other. When they do, it usually results in conflict of varying degrees.
+      relation: Sans sees Papyrus as a living reminder of his own failure. He resents his brother's success, his discipline, and his willingness to tear apart their family for power. What he would not say aloud is that some part of him still wishes Papyrus was kinder to him.
 
     - character: Alphys
-      relation: Sans and Alphys are in a toxic romantic relationship. While she could very easily end Sans’s homelessness, she believes he must earn it himself to prove he is not worthless. Alphys denies the relationship publicly, visits him drunk at the food court, and kicks him out whenever he stays too long.
+      relation: Sans and Alphys are in a toxic romantic relationship. He knows Alphys uses him, denies him, and discards him when it suits her. But he keeps coming back anyway, because she is one of the only people who ever comes to see him at all.
 
     - character: Mettaton
-      relation: Mettaton knows about Sans’s and Alphys’s relationship. He broadcasts it during his show in hopes of ending his own career, but it only sparks more interest from the viewers.
+      relation: Sans knows that Mettaton knows about his relationship with Alphys, but he can't bring himself to care.
+
+    - character: Valefar
+      relation: Sans views Valefar as a cheater and a thief, no better than himself. When the demon starts winning despite Sans's tricks, there is, behind the insults, a faint hint of respect for the dedication.
 
 abilities:
     - name: Bone Magic

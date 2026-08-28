@@ -1,5 +1,11 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
 .content-holder {
     display: flex;
+    width: 90%;
 }
 
 .text-content {
