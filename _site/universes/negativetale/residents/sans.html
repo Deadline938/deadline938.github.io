@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
-  <title>Sans3</title>
+  <title>Sans4</title>
   <style>
         @property --item-color {
             syntax: '<color>';
@@ -88,6 +88,10 @@
             --item-color: var(--resident-color);
         }
 
+        .grid-item:hover .resident-role {
+            color: var(--resident-color);
+        }
+
         .resident-name {
             font-size: 1.4em;
             margin-bottom: -8px;
@@ -96,7 +100,8 @@
         .resident-role {
             font-size: 0.8em;
             margin-bottom: -5px;
-            color: var(--item-color);
+            color: var(--location-color);
+            transition: color 0.25s ease-out;
         }
 
         .resident-icon {
@@ -221,7 +226,7 @@
 
 <div class="content-holder">
     <div class="text-content">
-        <h2 style="--item-color: #834524">Sans3</h2>
+        <h2 style="--item-color: #834524">Sans4</h2>
         <p style="font-size: 1rem; color: #834524; margin-top: -5px;">The Hanged Man</p>
         <div class="separator" style="--item-color: #834524;"></div>
         <div style="--item-color: #834524;">
