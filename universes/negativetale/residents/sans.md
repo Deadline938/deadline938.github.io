@@ -1,6 +1,6 @@
 ---
 layout: resident
-title: Sans2
+title: Sans3
 description: A homeless card sharp and Springfield's most self-destructive alcoholic.
 color: "#834524"
 image: resident_placeholder.png

@@ -5,6 +5,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap" rel="stylesheet">
   <title>Toriel</title>
   <style>
+        @property --item-color {
+            syntax: '<color>';
+            inherits: true;
+            initial-value: #cccccc;
+        }
+
         html {
             scrollbar-gutter: stable both-edges;
         }
@@ -51,13 +57,9 @@
             width: 85%;
         }
 
-        @property --item-color {
-            syntax: '<color>';
-            inherits: true;
-            initial-value: #d72727;
-        }
-
         .grid-item {
+            --location-color: #cccccc;
+            --resident-color: #cccccc;
             --item-color: var(--location-color);
 
             text-decoration: none;
@@ -65,7 +67,7 @@
             display: flex;
             align-items: flex-start;
             background-color: #070707;
-            color: #852d2d;
+            color: #FFF;
             border-radius: 6px;
             padding-right: 20px;
             padding-bottom: 5px;
@@ -95,7 +97,6 @@
             font-size: 0.8em;
             margin-bottom: -5px;
             color: var(--item-color);
-            transition: color 0.25s ease-out;
         }
 
         .resident-icon {
