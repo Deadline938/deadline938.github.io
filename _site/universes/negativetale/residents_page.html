@@ -91,7 +91,12 @@
         .resident-role {
             font-size: 0.8em;
             margin-bottom: -5px;
-            color: var(--item-color);
+            color: var(--location-color);
+            transition: color 0.25s ease-out;
+        }
+
+        .grid-item:hover .resident-role {
+            color: var(--resident-color);
         }
 
         .resident-name {
@@ -583,7 +588,7 @@
                     <a href="/universes/negativetale/residents/sans.html" class="grid-item" style="--location-color: #807c74; --resident-color: #834524;">
                         <img src="/resident_placeholder.png" alt="Placeholder" class="resident-icon">
                         <div class="resident-text">
-                            <p class="resident-name"><b>Sans4</b></p>
+                            <p class="resident-name"><b>Sans</b></p>
                             <p class="resident-role">The Hanged Man</p>
                             <p class="resident-description">A homeless card sharp and Springfield's most self-destructive alcoholic.</p>
                         </div>

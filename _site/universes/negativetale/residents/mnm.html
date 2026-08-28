@@ -91,7 +91,12 @@
         .resident-role {
             font-size: 0.8em;
             margin-bottom: -5px;
-            color: var(--item-color);
+            color: var(--location-color);
+            transition: color 0.25s ease-out;
+        }
+
+        .grid-item:hover .resident-role {
+            color: var(--resident-color);
         }
 
         .resident-name {
